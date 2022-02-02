@@ -17,7 +17,7 @@ class UserBar extends React.Component {
             user_id: this.state.userName,
             password: this.state.passWord
         })
-        .then(response => this.setState(response))
+        .then(response => this.setState({token: response}))
     }
     handleChange(e) {
         const value = e.target.value;
@@ -28,15 +28,18 @@ class UserBar extends React.Component {
 
     }
     componentDidUpdate() {
+        if (this.state.token.status === "200") {
+            this.props.onChange(this.state.token)
+        }
     }
     render() {
         if (this.state.token.status === "200") {
             return (
                 <div>
-                    <div>{this.props.token.user_id}</div>
-                    <div>{this.props.token.user_name}</div>
-                    <div>{this.props.token.username}</div>
-                    <div>{this.props.token.email}</div>
+                    <div>{this.state.token.user_id}</div>
+                    <div>{this.state.token.user_name}</div>
+                    <div>{this.state.token.username}</div>
+                    <div>{this.state.token.email}</div>
                 </div>
                 )
         }

@@ -12,7 +12,9 @@ class App extends React.Component {
     super(props)
     this.state = {
       value: new Date(),
-      highdate: ['2-2-2022']
+      highdate: ['2-2-2022'],
+      userData: {},
+      loginStatus: {}
       
     };
     this.onChange = this.onChange.bind(this);
@@ -27,7 +29,7 @@ class App extends React.Component {
     render() {
       return (
       <div className="Mainbar">
-      <UserBar data={""}/>
+      <UserBar/>
       <Calendar
         onChange={this.onChange}
         value={this.state.value}
@@ -37,9 +39,7 @@ class App extends React.Component {
           }
         }}
         />
-      <RightBar 
-      dateValue={this.state.value}
-      />
+      <RightBar/>
     </div>
       )}
 
