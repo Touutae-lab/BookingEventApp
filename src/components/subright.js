@@ -8,6 +8,8 @@ class Subbar extends React.Component {
              
         }
     }
+    render() {
+    }
     
 }
 export default Subbar;

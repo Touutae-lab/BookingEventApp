@@ -30,12 +30,7 @@ class App extends React.Component {
     render() {
       return (
       <div className="Mainbar">
-<<<<<<< HEAD
-      <UserBar/>
-
-=======
       <LeftBar />
->>>>>>> b91693d76af0003142860433f14089a52c525d38
       <Calendar
         onChange={this.onChange}
         value={this.state.value}
