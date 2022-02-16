@@ -10,20 +10,37 @@ class LeftBar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      day: "MONDAY",
-      date: "27 December 2022",
-      name: "NAME",
-      teams: ["team1", "team2"],
-      open: true,
+      token: {
+        status: "",
+      },
+      username: "",
+      password: ""
     };
+    this.handleChange = this.handleChange.bind(this);
   }
 
   handleClick = () => {
     this.state.open = !this.state.open;
   };
+  
+  handleSubmit(e) {
+    e.preventDefault();
+    axios.post("http://localhost:3000/user/post", {
+        user_id: this.state.userName,
+        password: this.state.passWord
+    })
+    .then(response => this.setState({token: response}))
+}
+  handleChange(e) {
+    const value = e.target.value;
+    this.setState({
+        [e.target.name]: value
+    })
 
+  }
   render() {
-    return (
+    if (this.state.token.status === "200") {
+   return (
       <div className="center">
         <h1>{this.state.day}</h1>
         <h4>{this.state.date}</h4>
@@ -39,6 +56,32 @@ class LeftBar extends React.Component {
         <Button variant="contained">Edit</Button>
       </div>
     );
+  }
+  else {
+    return (
+    <div>
+        <form onSubmit={this.handleSubmit}>
+            <div>
+            <label>Username</label>
+                <input 
+                type="text"
+                value={this.state.userName}
+                name="userName"
+                onChange={this.handleChange}
+                />
+            <label>Password</label>
+                <input
+                type="text"
+                name="passWord"
+                value={this.state.passWord}
+                onChange={this.handleChange}
+                />
+            <input type="submit"/>
+        </div>
+        </form>
+    </div>
+    );
+  }
   }
 }
 

@@ -3,7 +3,6 @@ import './Calendar.css';
 import React from 'react';
 import Calendar from 'react-calendar';
 import RightBar from './components/RightBar';
-import UserBar from './components/userbar';
 import LeftBar from './components/LeftBar';
 
 
@@ -15,7 +14,7 @@ class App extends React.Component {
       highdate: ['2-2-2022'],
       userData: {},
       loginStatus: {}
-    };
+    }
     this.onChange = this.onChange.bind(this);
     this.convertdate = this.convertdate.bind(this);
   }
