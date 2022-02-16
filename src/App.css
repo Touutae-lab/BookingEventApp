@@ -9,8 +9,7 @@
 }
 
 .RightBar .Header {
-  font-family: sans-serif "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
-    sans-serif;
+  font-family: sans-serif 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   align-content: center;
   text-align: center;
 }
@@ -18,9 +17,15 @@
 .UserBar {
   width: 25%;
 }
-.center {
-  margin: auto;
-  align-content: center;
-  text-align: center;
-  width: 30%;
+
+.general-box{
+  margin: 10px;
+  width: 80%;
+  border: 3px;
+  padding: 3px;
+}
+
+
+#button-kub{
+  margin: 10px;
 }
