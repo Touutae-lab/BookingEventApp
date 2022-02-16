@@ -18,27 +18,9 @@
 .UserBar {
   width: 25%;
 }
-<<<<<<< HEAD
-
-.general-box{
-  margin: auto;
-  width: 80%;
-  border: 3px;
-  padding: 3px;
-}
-
-.css-1u3bzj6-MuiFormControl-root-MuiTextField-root{
-  margin: 10px;
-}
-
-#button-kub{
-  margin: 10px;
-}
-=======
 .center {
   margin: auto;
   align-content: center;
   text-align: center;
   width: 30%;
 }
->>>>>>> b91693d76af0003142860433f14089a52c525d38
