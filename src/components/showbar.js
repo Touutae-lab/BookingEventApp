@@ -1,6 +1,11 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import "../App.css";
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
+import TimePicker from 'react-time-picker';
+
+
 
 class RightBar extends React.Component {
   constructor(props) {
@@ -21,9 +26,40 @@ class RightBar extends React.Component {
     return (
       <div className="RightBar">
         <div className="Header">
-          Booking Event
+          Activity
+        </div>
+        <div class="general-box">
+        <TextField id="outlined-basic" label="Title" variant="outlined" />
+        <TextField id="outlined-basic" label="Location" variant="outlined" />
+
+        <TextField id="outlined-basic" label="Start" variant="outlined" />
+
+        <TextField id="outlined-basic" label="End" variant="outlined" />
+
+        
+        <TextField
+            label="Choose Time"
+            defaultValue="04:20"
+            type="time"
+            InputLabelProps={{
+              shrink: true,
+            }}
+            // 5 minutes
+            inputProps={{
+              step: 300,
+            }}
+        />
+
+        <TextField id="outlined-basic" label="People" variant="outlined" />
+
+        <TextField id="outlined-basic" label="Desscription" variant="outlined" />
+        </div>
+        <div id="button-kub">
+        <Button id="button-kub" variant="contained">Done</Button>
+        <Button id="button-kub" variant="contained">Delete</Button>
         </div>
       </div>
+      
     );
   }
 }

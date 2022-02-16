@@ -30,6 +30,7 @@ class App extends React.Component {
       return (
       <div className="Mainbar">
       <UserBar/>
+
       <Calendar
         onChange={this.onChange}
         value={this.state.value}
@@ -39,6 +40,7 @@ class App extends React.Component {
           }
         }}
         />
+        
       <RightBar/>
     </div>
       )}
