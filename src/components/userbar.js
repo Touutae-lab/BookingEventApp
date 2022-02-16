@@ -1,6 +1,7 @@
 import React from "react";
 import "../App.css";
 import axios from "axios";
+
 class UserBar extends React.Component {
     constructor(props) {
         super(props)  
@@ -11,6 +12,7 @@ class UserBar extends React.Component {
         }
         this.handleChange = this.handleChange.bind(this)
     }
+
     handleSubmit(e) {
         e.preventDefault();
         axios.post("http://localhost:3000/user/post", {
@@ -19,6 +21,7 @@ class UserBar extends React.Component {
         })
         .then(response => this.setState({token: response}))
     }
+
     handleChange(e) {
         const value = e.target.value;
         console.log(value)
@@ -27,11 +30,13 @@ class UserBar extends React.Component {
         })
 
     }
+
     componentDidUpdate() {
         if (this.state.token.status === "200") {
             this.props.onChange(this.state.token)
         }
     }
+
     render() {
         if (this.state.token.status === "200") {
             return (

@@ -2,9 +2,10 @@ import './App.css';
 import './Calendar.css';
 import React from 'react';
 import Calendar from 'react-calendar';
-import RightBar from './components/showbar';
+import RightBar from './components/RightBar';
 import UserBar from './components/userbar';
-
+import LeftBar from './components/LeftBar';
+import NestedList from "./components/xxx";
 
 
 class App extends React.Component {
@@ -29,7 +30,7 @@ class App extends React.Component {
     render() {
       return (
       <div className="Mainbar">
-      <UserBar/>
+      <LeftBar/>
       <Calendar
         onChange={this.onChange}
         value={this.state.value}
