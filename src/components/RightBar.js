@@ -1,12 +1,13 @@
 import React from "react";
-import { useState, useEffect } from "react";
 import "../App.css";
 
 class RightBar extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      event: ""
+      event: this.props.userEvent,
+      data: this.props.userData,
+      
     }
   }
   async requestOptions(url) {
@@ -51,17 +52,5 @@ class RightBar extends React.Component {
 //           year: year,
 //          })
 //     };
-//     requestOptions(url, requestForm)
-//     }, [dateValue])
-//     console.log(event)
-//     return (
-    
-//     <div className="RightBar">
-//         <div className="Header">Booking Event</div>
-//         <div>
-            
-//         </div>
-//     </div>
-//     );
-// }
+//     
 export default RightBar;

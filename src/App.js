@@ -5,7 +5,6 @@ import Calendar from 'react-calendar';
 import RightBar from './components/RightBar';
 import UserBar from './components/userbar';
 import LeftBar from './components/LeftBar';
-import NestedList from "./components/xxx";
 
 
 class App extends React.Component {
@@ -16,10 +15,12 @@ class App extends React.Component {
       highdate: ['2-2-2022'],
       userData: {},
       loginStatus: {}
-      
     };
     this.onChange = this.onChange.bind(this);
     this.convertdate = this.convertdate.bind(this);
+  }
+  handleEvent(e) {
+    this.setState({highdate: e})
   }
   onChange(e) {
     this.setState({value: e})
@@ -30,7 +31,7 @@ class App extends React.Component {
     render() {
       return (
       <div className="Mainbar">
-      <LeftBar/>
+      <LeftBar />
       <Calendar
         onChange={this.onChange}
         value={this.state.value}
@@ -43,7 +44,6 @@ class App extends React.Component {
       <RightBar/>
     </div>
       )}
-
 }
 
 export default App;

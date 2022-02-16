@@ -5,7 +5,6 @@ import * as React from "react";
 import Avatar from "@mui/material/Avatar";
 import { deepOrange, deepPurple } from "@mui/material/colors";
 import Button from "@mui/material/Button";
-import NestedList from "./xxx";
 
 class LeftBar extends React.Component {
   constructor(props) {
@@ -36,9 +35,6 @@ class LeftBar extends React.Component {
 
         <h2>{this.state.name}</h2>
         <p>Your Team</p>
-
-        <NestedList />
-
         <br />
         <Button variant="contained">Edit</Button>
       </div>
