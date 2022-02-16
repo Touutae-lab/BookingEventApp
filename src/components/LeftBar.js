@@ -21,66 +21,69 @@ class LeftBar extends React.Component {
   handleClick = () => {
     this.state.open = !this.state.open;
   };
-  
+
   handleSubmit(e) {
     e.preventDefault();
-    axios.post("http://localhost:3000/user/post", {
-        user_id: this.state.userName,
-        password: this.state.passWord
+    axios.post("http://ec2-13-229-129-189.ap-southeast1.compute.amazonaws.com/users", {
+      userId: "234567890-",
+      displayName: "ja",
+      username: "jarawin",
+      email: "jarawin@gmail.com",
+      role_id: "2"
     })
-    .then(response => this.setState({token: response}))
-}
+      .then(response => this.setState({ token: response }))
+  }
   handleChange(e) {
     const value = e.target.value;
     this.setState({
-        [e.target.name]: value
+      [e.target.name]: value
     })
 
   }
   render() {
     if (this.state.token.status === "200") {
-   return (
-      <div className="center">
-        <h1>{this.state.day}</h1>
-        <h4>{this.state.date}</h4>
-        <br />
+      return (
+        <div className="center">
+          <h1>{this.state.day}</h1>
+          <h4>{this.state.date}</h4>
+          <br />
 
-        <Avatar sx={{ bgcolor: deepOrange[500] }} className="center">
-          {this.state.name[0]}
-        </Avatar>
+          <Avatar sx={{ bgcolor: deepOrange[500] }} className="center">
+            {this.state.name[0]}
+          </Avatar>
 
-        <h2>{this.state.name}</h2>
-        <p>Your Team</p>
-        <br />
-        <Button variant="contained">Edit</Button>
-      </div>
-    );
-  }
-  else {
-    return (
-    <div>
-        <form onSubmit={this.handleSubmit}>
+          <h2>{this.state.name}</h2>
+          <p>Your Team</p>
+          <br />
+          <Button variant="contained">Edit</Button>
+        </div>
+      );
+    }
+    else {
+      return (
+        <div>
+          <form onSubmit={this.handleSubmit}>
             <div>
-            <label>Username</label>
-                <input 
+              <label>Username</label>
+              <input
                 type="text"
                 value={this.state.userName}
                 name="userName"
                 onChange={this.handleChange}
-                />
-            <label>Password</label>
-                <input
+              />
+              <label>Password</label>
+              <input
                 type="text"
                 name="passWord"
                 value={this.state.passWord}
                 onChange={this.handleChange}
-                />
-            <input type="submit"/>
+              />
+              <input type="submit" />
+            </div>
+          </form>
         </div>
-        </form>
-    </div>
-    );
-  }
+      );
+    }
   }
 }
 
