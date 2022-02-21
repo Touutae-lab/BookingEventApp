@@ -30,28 +30,20 @@ class FormLogin extends React.Component {
         if (this.state.email === "" || this.state.password === "") {
             alert("Please enter your username and password")
         } else {
-            console.log("submit");
-            console.log(this.state.email);
-            console.log(this.state.password);
-            try {
-                axios.get("http://ec2-13-229-129-189.ap-southeast-1.compute.amazonaws.com/login", {
-                    email: this.state.email,
-                    hashpassword: this.setState.password,
+            axios.get("http://ec2-13-229-129-189.ap-southeast-1.compute.amazonaws.com/login", {
+                email: this.state.email,
+                hashpassword: this.setState.password,
+            })
+                .then((res) => {
+                    console.log("response")
+                    console.log(res.json())
+
+                    if (res.data.status === "200") {
+                        this.props.setUserData(res.userdata)
+                    } else {
+                        alert(res.message)
+                    }
                 })
-                    .then((res) => {
-                        console.log("response")
-                        console.log(res.data)
-
-                        if (res.data.status === "200") {
-                            this.props.setUserData(res.userdata)
-                        } else {
-                            alert(res.message)
-                        }
-                    })
-
-            } catch (e) {
-                alert("error")
-            }
         }
     }
 
