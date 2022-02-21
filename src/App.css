@@ -1,31 +1,53 @@
-.Mainbar {
+/* #===- box -===# */
+.mainbar-box {
   flex-direction: row;
   display: flex;
   width: 100%;
 }
 
-.RightBar {
-  width: 25%;
+.leftbar-box {
+  display: flex;
+  background-color: cornsilk;
 }
 
-.RightBar .Header {
-  font-family: sans-serif 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  align-content: center;
+.midbar-box {
+  display: flex;
+  background-color: darkgoldenrod;
+}
+
+.rightbar-box {
+  display: flex;
+  background-color: cornsilk;
+}
+
+/* #===- center -===# */
+.text-center {
   text-align: center;
 }
 
-.UserBar {
-  width: 25%;
+.img-center {
+  margin: auto;
 }
 
 .general-box{
-  margin: 10px;
-  width: 80%;
-  border: 3px;
-  padding: 3px;
+  margin: 30px;
+  width: 300px;
+  padding: 20px;
 }
 
+#border-text{
+  padding: 10px;
+  margin: 100px;
+}
 
 #button-kub{
   margin: 10px;
+}
+
+#c1, #c2, #c3 {
+  margin: 10px; 
+  width: 33%; 
+  width: -webkit-calc(33.33% - 20px); 
+  width: -moz-calc(33.33% - 20px);
+  width: calc(33.33% - 20px);
 }
