@@ -8,15 +8,15 @@ class FormLogin extends React.Component {
         this.state = {
             email: "",
             password: "",
+            userdata: "",
         }
+        this.changeHandler = this.changeHandler.bind(this);
     }
     changeHandler = e => {
-        const name = e.target.name;
-        const value = e.target.value;
+        let value = e.target.value;
 
         this.setState({
-            ...this.state,
-            [name]: value
+            [e.target.name]: value
         });
     }
 
@@ -42,8 +42,6 @@ class FormLogin extends React.Component {
                 })
         }
     }
-
-
     render() {
         return (
             <div className="text-center">
@@ -53,7 +51,6 @@ class FormLogin extends React.Component {
                         className="mb-05"
                         placeholder="exameple@gmail.com"
                         name="email"
-                        value={this.state.email}
                         onChange={this.changeHandler}
                     />
                     <label>password</label>
@@ -61,12 +58,10 @@ class FormLogin extends React.Component {
                         className="mb-1"
                         placeholder="12345678"
                         name="password"
-                        value={this.state.password}
                         onChange={this.changeHandler}
                     />
                     <button className="mb-3" type="submit">Login</button>
                 </form>
-                <button className="register-bar" type="submit">Register</button>
             </div>
         );
     }

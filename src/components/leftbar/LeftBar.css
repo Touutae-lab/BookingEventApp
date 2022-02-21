@@ -1,3 +1,12 @@
 .leftbar-color {
   background-color: chocolate;
 }
+
+.Link {
+  cursor: pointer;
+  color: #B2CAFA;
+
+}
+.Link:hover {
+  border-bottom: 2px solid #B2CAFA;
+}

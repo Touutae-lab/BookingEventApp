@@ -1,5 +1,6 @@
 import './App.css';
 import React from 'react';
+
 import NavigationBar from './components/NavigationBar';
 import RightBar_ShowActi from './components/RightBar_ShowActi';
 
@@ -32,10 +33,10 @@ class App extends React.Component {
     )
   }
   onChange(e) {
-    this.setState({value: e})
+    this.setState({ value: e })
   }
   convertdate(x) {
-    return x.getDate().toString() + "-" + (x.getMonth()+1).toString() + "-" + (x.getFullYear().toString())
+    return x.getDate().toString() + "-" + (x.getMonth() + 1).toString() + "-" + (x.getFullYear().toString())
   }
 }
 export default App;
