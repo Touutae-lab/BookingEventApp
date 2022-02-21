@@ -1,6 +1,5 @@
 import './App.css';
 import React from 'react';
-import Calendar from 'react-calendar';
 import NavigationBar from './components/NavigationBar';
 import RightBar_ShowActi from './components/RightBar_ShowActi';
 

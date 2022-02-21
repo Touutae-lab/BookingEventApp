@@ -10,7 +10,6 @@ class FormLogin extends React.Component {
             password: "",
         }
     }
-
     changeHandler = e => {
         const name = e.target.name;
         const value = e.target.value;
@@ -19,9 +18,6 @@ class FormLogin extends React.Component {
             ...this.state,
             [name]: value
         });
-
-        console.log(this.state.email);
-        console.log(this.state.password);
     }
 
     handleSubmit = e => {
@@ -70,6 +66,7 @@ class FormLogin extends React.Component {
                     />
                     <button className="mb-3" type="submit">Login</button>
                 </form>
+                <button className="register-bar" type="submit">Register</button>
             </div>
         );
     }

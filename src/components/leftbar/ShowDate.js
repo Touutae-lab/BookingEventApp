@@ -5,8 +5,6 @@ class ShowDate extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            day: "",
-            date: "22 December 2020",
         };
     }
 
