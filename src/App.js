@@ -1,49 +1,32 @@
 import './App.css';
-import './Calendar.css';
 import React from 'react';
-import Calendar from 'react-calendar';
-import RightBar from './components/RightBar';
-import LeftBar from './components/LeftBar';
 
+import RightBar from './components/rightbar/RightBar';
+import LeftBar from './components/leftbar/LeftBar';
+import MidBar from './components/midbar/MidBar';
 
 class App extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {
-      value: new Date(),
-      highdate: ['2-2-2022'],
-      userData: {},
-      loginStatus: {}
-    }
-    this.onChange = this.onChange.bind(this);
-    this.convertdate = this.convertdate.bind(this);
   }
-  handleEvent(e) {
-    this.setState({highdate: e})
+
+  render() {
+    return (
+      <div className="mainbar-box">
+        <div className='leftbar-box'>
+          <LeftBar />
+        </div>
+
+        <div className='midbar-box'>
+          <MidBar />
+        </div>
+
+        <div className='rightbar-box'>
+          <RightBar />
+        </div>
+      </div>
+    )
   }
-  onChange(e) {
-    this.setState({value: e})
-  }
-  convertdate(x) {
-    return x.getDate().toString() + "-" + (x.getMonth()+1).toString() + "-" + (x.getFullYear().toString())
-  }
-    render() {
-      return (
-      <div className="Mainbar">
-      <LeftBar />
-      <Calendar
-        onChange={this.onChange}
-        value={this.state.value}
-        tileClassName={({ date }) => {
-          if(this.state.highdate.find(x=>x===this.convertdate(date))){
-           return 'hightlight';
-          }
-        }}
-        />
-        
-      <RightBar/>
-    </div>
-      )}
 }
 
 export default App;
