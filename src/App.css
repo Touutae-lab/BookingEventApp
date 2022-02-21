@@ -6,16 +6,19 @@
 }
 
 .leftbar-box {
+  width: 20%;
   display: flex;
   background-color: cornsilk;
 }
 
 .midbar-box {
+  width: 60%;
   display: flex;
   background-color: darkgoldenrod;
 }
 
 .rightbar-box {
+  width: 20%;
   display: flex;
   background-color: cornsilk;
 }
@@ -29,25 +32,202 @@
   margin: auto;
 }
 
-.general-box{
-  margin: 30px;
-  width: 300px;
-  padding: 20px;
+/* #===- margin top -===# */
+.mt-05 {
+  margin-top: 0.5rem;
 }
 
-#border-text{
+.mt-1 {
+  margin-top: 1rem;
+}
+
+.mt-15 {
+  margin-top: 1.5rem;
+}
+
+.mt-2 {
+  margin-top: 2rem;
+}
+
+.mt-25 {
+  margin-top: 2.5rem;
+}
+
+.mt-3 {
+  margin-top: 3rem;
+}
+
+.mt-35 {
+  margin-top: 3.5rem2;
+}
+
+.mt-4 {
+  margin-top: 4rem;
+}
+
+.mt-45 {
+  margin-top: 4.5rem;
+}
+
+.mt-5 {
+  margin-top: 5rem;
+}
+
+.mt-55 {
+  margin-top: 5.5rem;
+}
+
+/* #===- margin bottom -===# */
+.mb-05 {
+  margin-bottom: 0.5rem;
+}
+
+.mb-1 {
+  margin-bottom: 1rem;
+}
+
+.mb-15 {
+  margin-bottom: 1.5rem;
+}
+
+.mb-2 {
+  margin-bottom: 2rem;
+}
+
+.mb-25 {
+  margin-bottom: 2.5rem;
+}
+
+.mb-3 {
+  margin-bottom: 3rem;
+}
+
+.mb-35 {
+  margin-bottom: 3.5rem2;
+}
+
+.mb-4 {
+  margin-bottom: 4rem;
+}
+
+.mb-45 {
+  margin-bottom: 4.5rem;
+}
+
+.mb-5 {
+  margin-bottom: 5rem;
+}
+
+.mb-55 {
+  margin-bottom: 5.5rem;
+}
+
+/* #===- margin left -===# */
+.ml-05 {
+  margin-left: 0.5rem;
+}
+
+.ml-1 {
+  margin-left: 1rem;
+}
+
+.ml-15 {
+  margin-left: 1.5rem;
+}
+
+.ml-2 {
+  margin-left: 2rem;
+}
+
+.ml-25 {
+  margin-left: 2.5rem;
+}
+
+.ml-3 {
+  margin-left: 3rem;
+}
+
+.ml-35 {
+  margin-left: 3.5rem2;
+}
+
+.ml-4 {
+  margin-left: 4rem;
+}
+
+.ml-45 {
+  margin-left: 4.5rem;
+}
+
+.ml-5 {
+  margin-left: 5rem;
+}
+
+.ml-55 {
+  margin-left: 5.5rem;
+}
+
+/* #===- margin right -===# */
+.mr-05 {
+  margin-right: 0.5rem;
+}
+
+.mr-1 {
+  margin-right: 1rem;
+}
+
+.mr-15 {
+  margin-right: 1.5rem;
+}
+
+.mr-2 {
+  margin-right: 2rem;
+}
+
+.mr-25 {
+  margin-right: 2.5rem;
+}
+
+.mr-3 {
+  margin-right: 3rem;
+}
+
+.mr-35 {
+  margin-right: 3.5rem2;
+}
+
+.mr-4 {
+  margin-right: 4rem;
+}
+
+.mr-45 {
+  margin-right: 4.5rem;
+}
+
+.mr-5 {
+  margin-right: 5rem;
+}
+
+.mr-55 {
+  margin-right: 5.5rem;
+}
+
+/* #===- others -===# */
+#border-text {
   padding: 10px;
   margin: 100px;
 }
 
-#button-kub{
+#button-kub {
   margin: 10px;
 }
 
-#c1, #c2, #c3 {
-  margin: 10px; 
-  width: 33%; 
-  width: -webkit-calc(33.33% - 20px); 
+#c1,
+#c2,
+#c3 {
+  margin: 10px;
+  width: 33%;
+  width: -webkit-calc(33.33% - 20px);
   width: -moz-calc(33.33% - 20px);
   width: calc(33.33% - 20px);
 }
