@@ -2,22 +2,27 @@
 .mainbar-box {
   flex-direction: row;
   display: flex;
-  width: 100%;
+  justify-content: center;
+  /* width: 100%; */
 }
 
 .leftbar-box {
   display: flex;
   background-color: cornsilk;
+  width: 15%;
+  /* max-width: 20em; */
 }
 
 .midbar-box {
   display: flex;
   background-color: darkgoldenrod;
+  /* width: 65%; */
 }
 
 .rightbar-box {
   display: flex;
   background-color: cornsilk;
+  width: 20%;
 }
 
 /* #===- center -===# */
@@ -29,25 +34,27 @@
   margin: auto;
 }
 
-.general-box{
+.general-box {
   margin: 30px;
   width: 300px;
   padding: 20px;
 }
 
-#border-text{
+#border-text {
   padding: 10px;
   margin: 100px;
 }
 
-#button-kub{
+#button-kub {
   margin: 10px;
 }
 
-#c1, #c2, #c3 {
-  margin: 10px; 
-  width: 33%; 
-  width: -webkit-calc(33.33% - 20px); 
+#c1,
+#c2,
+#c3 {
+  margin: 10px;
+  width: 33%;
+  width: -webkit-calc(33.33% - 20px);
   width: -moz-calc(33.33% - 20px);
   width: calc(33.33% - 20px);
 }
