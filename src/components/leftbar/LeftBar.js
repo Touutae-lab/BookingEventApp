@@ -15,14 +15,8 @@ class LeftBar extends React.Component {
       token: {
         status: "",
       },
-      username: "",
-      password: "",
-      day: "MONDAY",
-      date: "22 December 2020",
-      name: "name",
-      page: "loggedin",
       userData: null,
-      showUser: true,
+      currentPage: "Login",
     };
     // this.handleChange = this.handleChange.bind(this);
   }
@@ -32,37 +26,21 @@ class LeftBar extends React.Component {
       userData: userData
     })
   }
-
-
-
   componentDidUpdate() {
-    if (this.state.userData !== null) {
-      this.setState({ showUser: true })
-    }
   }
 
-  getShowUser() {
-    if (this.state.showUser) {
-      return <ShowUser userData={this.state.userData} />
-    }
-  }
+
 
   render() {
-    return (
-      <div className="">
-        <div className="mt-3">
-          <ShowDate />
+      if (this.state.currentPage === "Login") {
+        return(
+        <div>
+          <ShowDate/>
+          <ShowLogin setUserData={this.setUserData}/>
         </div>
-
-        <div className="mt-3">
-          <ShowLogin setUserData={this.setUserData} />
-        </div>
-
-        {this.getShowUser}
-
-      </div>
-    )
-  }
+        )
+      }
+    }
 }
 
 export default LeftBar;
