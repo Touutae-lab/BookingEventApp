@@ -31,8 +31,10 @@ class LeftBar extends React.Component {
   handleClick() {
     this.setState({ currentPage: "Register" });
   }
-  componentDidUpdate() {
 
+  setPage = (page) => {
+    this.setState({ currentPage: page });
+    this.forceUpdate();
   }
 
 
@@ -42,9 +44,10 @@ class LeftBar extends React.Component {
       return (
         <div>
           <ShowDate />
+
           <ShowLogin setUserData={this.setUserData} />
 
-          <div className="mt-1 text-center">You are not member yet?
+          <div className="mt-1 text-center text-box">You are not member yet?
             <a className="Link" onClick={this.handleClick} style={{ cursor: 'pointer' }}>  Create account </a>
           </div>
         </div>
@@ -54,7 +57,7 @@ class LeftBar extends React.Component {
       return (
         <div>
           <ShowDate />
-          <Registbar />
+          <Registbar setPage={this.setPage} />
         </div>
       )
     }

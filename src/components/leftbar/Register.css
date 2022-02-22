@@ -1,0 +1,14 @@
+.register-box {
+  width: 100%;
+  position: absolute;
+  margin-top: 8rem;
+}
+
+.input-box-regis {
+  display: block;
+  margin: auto;
+}
+
+.bg-register {
+    background-color: seagreen;
+}

@@ -31,7 +31,7 @@ class ShowDate extends React.Component {
 
     render() {
         return (
-            <div className="text-center showdate-color showdate-box">
+            <div className="text-center full-width showdate-color mt-2 mb-2">
                 <h1 className="mb-05">{this.state.day}</h1>
                 <h4>{this.state.date}</h4>
             </div>

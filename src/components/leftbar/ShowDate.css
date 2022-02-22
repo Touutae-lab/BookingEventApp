@@ -6,3 +6,8 @@
   padding-top: 2rem;
   padding-bottom: 2rem;
 }
+
+.full-width {
+  width: 100%;
+  position: absolute;
+}
