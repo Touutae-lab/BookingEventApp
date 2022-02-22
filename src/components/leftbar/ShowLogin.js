@@ -44,23 +44,35 @@ class FormLogin extends React.Component {
     }
     render() {
         return (
-            <div className="text-center">
+            <div className="text-center login-box bg">
                 <form onSubmit={this.handleSubmit}>
-                    <label>email</label>
-                    <input type="email"
-                        className="mb-05"
-                        placeholder="exameple@gmail.com"
-                        name="email"
-                        onChange={this.changeHandler}
-                    />
-                    <label>password</label>
-                    <input type="password"
-                        className="mb-1"
-                        placeholder="12345678"
-                        name="password"
-                        onChange={this.changeHandler}
-                    />
-                    <button className="mb-3" type="submit">Login</button>
+
+                    <div className="row-input-box">
+                        <div className="label-box mt-05">
+                            <label className="text-right">email :</label>
+                        </div>
+                        <div className="input-box ">
+                            <input type="email"
+                                placeholder="example@gmail.com"
+                                name="email"
+                                onChange={this.changeHandler}
+                            />
+                        </div>
+                    </div>
+
+                    <div className="row-input-box">
+                        <div className="label-box mt-05">
+                            <label className="text-right">password :</label>
+                        </div>
+                        <div className="input-box ">
+                            <input type="password"
+                                placeholder="12345678"
+                                name="password"
+                                onChange={this.changeHandler}
+                            />
+                        </div>
+                    </div>
+                    <button className="mb-05 mt-05" type="submit">Login</button>
                 </form>
             </div>
         );

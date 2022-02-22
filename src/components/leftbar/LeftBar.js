@@ -29,7 +29,7 @@ class LeftBar extends React.Component {
     })
   }
   handleClick() {
-    this.setState({currentPage: "Register"});
+    this.setState({ currentPage: "Register" });
   }
   componentDidUpdate() {
 
@@ -38,32 +38,33 @@ class LeftBar extends React.Component {
 
 
   render() {
-      if (this.state.currentPage === "Login") {
-        return(
+    if (this.state.currentPage === "Login") {
+      return (
         <div>
-          <ShowDate/>
-          <ShowLogin setUserData={this.setUserData}/>
-          <div>You are not member yet? 
-          <a className="Link"onClick={this.handleClick} style={{cursor: 'pointer'}}>  Create account </a>
+          <ShowDate />
+          <ShowLogin setUserData={this.setUserData} />
+
+          <div className="mt-1 text-center">You are not member yet?
+            <a className="Link" onClick={this.handleClick} style={{ cursor: 'pointer' }}>  Create account </a>
           </div>
         </div>
-        )
-      }
-      else if (this.state.currentPage === "Register") {
-        return (
-          <div>
-            <ShowDate/>
-            <Registbar/>
-          </div>
-        )
-      }
-      else if (this.state.currentPage === "User") {
-        return (
-          <ShowUser/>
-        )
-        }
-        return <div>Something went wrongs</div>
+      )
     }
+    else if (this.state.currentPage === "Register") {
+      return (
+        <div>
+          <ShowDate />
+          <Registbar />
+        </div>
+      )
+    }
+    else if (this.state.currentPage === "User") {
+      return (
+        <ShowUser />
+      )
+    }
+    return <div>Something went wrongs</div>
+  }
 }
 
 export default LeftBar;

@@ -1,3 +1,21 @@
-input {
-  width: 100%;
+.login-box {
+  margin-top: 2rem;
+}
+
+.text-right {
+  float: right;
+  text-align: right;
+}
+
+.label-box {
+  width: 30%;
+}
+
+.row-input-box {
+  display: flex;
+  justify-content: center;
+}
+
+.bg {
+  background-color: purple;
 }

@@ -1,4 +1,8 @@
-
 .showdate-color {
   background-color: crimson;
+}
+
+.showdate-box {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }

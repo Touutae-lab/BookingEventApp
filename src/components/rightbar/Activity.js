@@ -47,9 +47,9 @@ class Activity extends React.Component {
         return (
             <div className="RightBar center mt-3">
                 <div className="text-center">
-                    
+                    <h1 className="text">Activity</h1>
                 </div>
-                <h1 className="text">Activity</h1>
+
 
                 <form onSubmit={this.handleSubmit}>
                     <div>
@@ -113,12 +113,12 @@ class Activity extends React.Component {
                             />
                         </div>
 
-                        <div className=" mt-05">
+                        <div className="input-big-box mt-05">
                             <label>description:</label>
                             <textarea
                                 className="mt-05"
                                 rows="5"
-                                cols="80"
+                                cols="43"
                                 id="TITLE"
                                 name="description"
                                 type="text"

@@ -9,22 +9,18 @@
   width: 20%;
   display: flex;
   background-color: cornsilk;
-  width: 15%;
-  /* max-width: 20em; */
 }
 
 .midbar-box {
   width: 60%;
   display: flex;
   background-color: darkgoldenrod;
-  /* width: 65%; */
 }
 
 .rightbar-box {
   width: 20%;
   display: flex;
   background-color: cornsilk;
-  width: 20%;
 }
 
 /* #===- center -===# */
@@ -40,6 +36,10 @@
   margin: 30px;
   width: 300px;
   padding: 20px;
+}
+
+.mt-05 {
+  margin-top: 0.5rem;
 }
 
 .mt-1 {
@@ -235,4 +235,14 @@
   width: -webkit-calc(33.33% - 20px);
   width: -moz-calc(33.33% - 20px);
   width: calc(33.33% - 20px);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0rem;
+  margin-bottom: 0rem;
 }

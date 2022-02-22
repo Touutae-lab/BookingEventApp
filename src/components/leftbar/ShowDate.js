@@ -4,8 +4,7 @@ import React from 'react';
 class ShowDate extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-        };
+        this.state = {};
     }
 
     getDay(d) {
@@ -32,8 +31,8 @@ class ShowDate extends React.Component {
 
     render() {
         return (
-            <div className="text-center showdate-color ">
-                <h1>{this.state.day}</h1>
+            <div className="text-center showdate-color showdate-box">
+                <h1 className="mb-05">{this.state.day}</h1>
                 <h4>{this.state.date}</h4>
             </div>
         )
