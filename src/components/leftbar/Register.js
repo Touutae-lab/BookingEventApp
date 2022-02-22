@@ -1,14 +1,18 @@
 import React from "react";
 import './Register.css'
+import axios from "axios";
+
 class Registbar extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
             userId: "",
+            username: "",
             displayName: "",
             hashpassword: "",
             role_id: "",
-            email: ""
+            email: "",
+            username: "",
         }
         this.handleInput = this.handleInput.bind(this);
     }
@@ -25,9 +29,28 @@ class Registbar extends React.Component {
 
     submitHandle = (e) => {
         e.preventDefault();
-        // post data to server
-        alert("Register Success")
-        this.props.setPage("Login");
+        axios.post("http://ec2-13-229-129-189.ap-southeast-1.compute.amazonaws.com/users", {
+            userId: this.state.userId,
+            displayName: this.state.displayName,
+            hashpassword: this.state.hashpassword,
+            role_id: 2,
+            email: this.state.email,
+            username: this.state.username
+        })
+            .then(res => {
+                console.log(res.data);
+                if (res.data.message == "create user unsuccessfully") {
+                    alert("register successfully")
+                    this.props.setPage("Login");
+                } else {
+                    alert(res.data.message);
+                }
+            })
+            .catch(err => {
+                alert(err.message)
+            })
+
+
     }
 
     render() {
@@ -50,6 +73,15 @@ class Registbar extends React.Component {
                     </div>
                     <div className="input-box ">
                         <input className="input-box-regis" name="userId" tpye="text" placeholder="e3134s" onChange={this.handleInput} />
+                    </div>
+                </div>
+
+                <div className="row-input-box">
+                    <div className="label-box mt-05">
+                        <label className="text-right">username :</label>
+                    </div>
+                    <div className="input-box ">
+                        <input className="input-box-regis" name="username" tpye="text" placeholder="username" onChange={this.handleInput} />
                     </div>
                 </div>
 

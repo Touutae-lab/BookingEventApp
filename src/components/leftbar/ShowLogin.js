@@ -22,25 +22,17 @@ class FormLogin extends React.Component {
 
     handleSubmit = e => {
         e.preventDefault();
-
-        if (this.state.email === "" || this.state.password === "") {
-            alert("Please enter your username and password")
-        } else {
-            axios.get("http://ec2-13-229-129-189.ap-southeast-1.compute.amazonaws.com/login", {
-                email: this.state.email,
-                hashpassword: this.setState.password,
+        console.log({
+            email: this.state.email,
+            hashpassword: this.state.password,
+        });
+        axios.get("http://ec2-13-229-129-189.ap-southeast-1.compute.amazonaws.com/login",)
+            .then((res) => {
+                alert(res.data.message ?? res.data.error);
             })
-                .then((res) => {
-                    console.log("response")
-                    console.log(res.json())
-
-                    if (res.data.status === "200") {
-                        this.props.setUserData(res.userdata)
-                    } else {
-                        alert(res.message)
-                    }
-                })
-        }
+            .catch(err => {
+                alert(err.message);
+            })
     }
     render() {
         return (
