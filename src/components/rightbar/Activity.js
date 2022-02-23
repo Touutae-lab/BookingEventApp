@@ -191,10 +191,11 @@ class Activity extends React.Component {
                         <div className="label-box mt-05">
                             <label className="text-right">start :</label>
                         </div>
-                        <div className="input-box ">
+                        <div className="input-box datetime-picker-box">
+
                             <input
                                 name="start"
-                                type="text"
+                                type="datetime-local"
                                 value={this.state.start}
                                 onChange={this.changeHandler}
                                 placeholder="start"
@@ -206,10 +207,10 @@ class Activity extends React.Component {
                         <div className="label-box mt-05">
                             <label className="text-right">end :</label>
                         </div>
-                        <div className="input-box ">
+                        <div className="input-box datetime-picker-box">
                             <input
                                 name="end"
-                                type="text"
+                                type="datetime-local"
                                 value={this.state.end}
                                 onChange={this.changeHandler}
                                 placeholder="end"
@@ -301,10 +302,10 @@ class Activity extends React.Component {
                         <div className="label-box mt-05">
                             <label className="text-right">start :</label>
                         </div>
-                        <div className="input-box ">
+                        <div className="input-box datetime-picker-box">
                             <input
                                 name="start"
-                                type="text"
+                                type="datetime-local"
                                 value={this.state.start}
                                 onChange={this.changeHandler}
                                 placeholder="start"
@@ -316,10 +317,10 @@ class Activity extends React.Component {
                         <div className="label-box mt-05">
                             <label className="text-right">end :</label>
                         </div>
-                        <div className="input-box ">
+                        <div className="input-box datetime-picker-box">
                             <input
                                 name="end"
-                                type="text"
+                                type="datetime-local"
                                 value={this.state.end}
                                 onChange={this.changeHandler}
                                 placeholder="end"

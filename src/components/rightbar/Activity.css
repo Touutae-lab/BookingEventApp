@@ -37,3 +37,7 @@
 .text-white {
   color: white;
 }
+
+.datetime-picker-box {
+  width: 40%;
+}
