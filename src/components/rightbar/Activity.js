@@ -6,32 +6,14 @@ class Activity extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            title: "",
-            location: "",
-            start: "",
-            end: "",
-            people: "",
-            description: "",
+            title: "123454567",
+            location: "23456",
+            start: "34567",
+            end: "45678",
+            people: "56789",
+            description: "67890",
+            currentPage: "viewActivity",
         }
-    }
-
-    handleSubmit = e => {
-        e.preventDefault();
-
-        axios.get("http://ec2-13-229-129-189.ap-southeast-1.compute.amazonaws.com/login", {
-            email: this.state.email,
-            hashpassword: this.setState.password,
-        })
-            .then((res) => {
-                console.log("response")
-                console.log(res.json())
-
-                if (res.data.status === "200") {
-                    this.props.setUserData(res.userdata)
-                } else {
-                    alert(res.message)
-                }
-            })
     }
 
     changeHandler = e => {
@@ -43,16 +25,103 @@ class Activity extends React.Component {
         });
     }
 
-    render() {
+    setPage = page => {
+        this.setState({
+            currentPage: page
+        })
+    }
+
+    updateActivity = (e) => {
+        e.preventDefault();
+        alert("update activity success");
+        // update activity to server
+        this.setPage("viewActivity");
+    }
+
+    deleteActivity = (e) => {
+        e.preventDefault();
+        alert("delete activity success");
+        // delete activity to server
+        this.setPage("viewActivity");
+    }
+
+    viewActivityPage() {
         return (
             <div className="RightBar center mt-3 bg activity-box bg-activity">
                 <div className="text-center">
-                    <h2 className="mb-1 mt-1">Activity</h2>
+                    <h2 className="mb-1 mt-1">View Activity</h2>
                 </div>
 
+                <div className="row-input-box field-activity">
+                    <div className="label-box mt-05 mr-05">
+                        <label className="text-right">title :</label>
+                    </div>
+                    <div className="input-box input-box-size">
+                        {this.state.title}
+                    </div>
+                </div>
 
+                <div className="row-input-box field-activity">
+                    <div className="label-box mt-05 mr-05">
+                        <label className="text-right">location :</label>
+                    </div>
+                    <div className="input-box input-box-size">
+                        {this.state.location}
+                    </div>
+                </div>
 
-                <form onSubmit={this.handleSubmit}>
+                <div className="row-input-box field-activity">
+                    <div className="label-box mt-05 mr-05">
+                        <label className="text-right">start :</label>
+                    </div>
+                    <div className="input-box input-box-size">
+                        {this.state.start}
+                    </div>
+                </div>
+
+                <div className="row-input-box field-activity">
+                    <div className="label-box mt-05 mr-05">
+                        <label className="text-right">end :</label>
+                    </div>
+                    <div className="input-box input-box-size">
+                        {this.state.end}
+                    </div>
+                </div>
+
+                <div className="row-input-box field-activity">
+                    <div className="label-box mt-05 mr-05">
+                        <label className="text-right">people :</label>
+                    </div>
+                    <div className="input-box input-box-size">
+                        {this.state.people}
+                    </div>
+                </div>
+
+                <div className="row-input-box field-activity">
+                    <div className="label-box mt-05 mr-05">
+                        <label className="text-right">description :</label>
+                    </div>
+                    <div className="input-box input-box-size">
+                        {this.state.description}
+                    </div>
+                </div>
+
+                <div className="text-center mt-05 mb-05">
+                    <button onClick={() => { this.setPage("editActivity") }} className="mr-05">Edit</button>
+                    <button onClick={(e) => { this.deleteActivity(e) }}>Delete</button>
+                </div>
+            </div>
+        );
+    }
+
+    editActivityPage() {
+        return (
+            <div className="RightBar center mt-3 bg activity-box bg-activity">
+                <div className="text-center">
+                    <h2 className="mb-1 mt-1">Edit Activity</h2>
+                </div>
+
+                <form onSubmit={this.updateActivity}>
 
                     <div className="row-input-box field-activity">
                         <div className="label-box mt-05">
@@ -147,12 +216,25 @@ class Activity extends React.Component {
                     </div>
 
                     <div className="text-center mt-05 mb-05">
-                        <button className="mr-05">Done</button>
-                        <button >Delete</button>
+                        <button type="submit" className="mr-05">Done</button>
+                        <button onClick={(e) => { this.deleteActivity(e) }}>Delete</button>
                     </div>
                 </form>
             </div>
         );
+    }
+
+
+
+    render() {
+        switch (this.state.currentPage) {
+            case "editActivity":
+                return this.editActivityPage();
+            case "viewActivity":
+                return this.viewActivityPage();
+            default:
+                return (<div>NO PAGE</div>)
+        }
     }
 }
 
