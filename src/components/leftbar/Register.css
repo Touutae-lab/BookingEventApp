@@ -1,17 +1,21 @@
 .register-box {
   margin-top: 2rem;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  background-color: #798294;
+  padding: 17.5px;
+  background-color: #5c6370;
   border-radius: 25px;
 }
 
 .header-color {
-  color: #282c34;
+  color: #e5c07b;
+  font-size: 22px;
 }
 
 .input-box-regis {
   display: flex;
   justify-content: center;
   margin: auto;
+}
+
+.two-btn-box {
+  margin-top: 10px;
 }

@@ -5,21 +5,8 @@ body {
 }
 
 button {
-  padding: 10px 20px;
-  border-radius: 100px;
-  border: 0px;
-  color: #20232a;
-}
-
-input {
-  padding: 5px 10px;
-  border-radius: 10px;
-  box-sizing: border-box;
-  border: none;
-  outline: none;
-}
-input:focus {
-  outline: 3px solid #61afef;
+  padding: 20px;
+  border-radius: 50px;
 }
 /* #===- box -===# */
 .mainbar-box {

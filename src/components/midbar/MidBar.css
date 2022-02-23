@@ -43,12 +43,9 @@
 }
 .react-calendar__navigation {
   display: flex;
-  height: 3em;
-  margin-bottom: 2em;
-  margin-top: 2em;
   justify-content: center;
-  padding-left: 4em;
-  padding-right: 4em;
+  margin: 1.5em 0em;
+  padding: 4px;
 }
 .react-calendar__navigation button {
   font-size: 2em;
