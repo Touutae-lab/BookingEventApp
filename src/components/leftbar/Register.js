@@ -57,7 +57,6 @@ class Registbar extends React.Component {
 
     render() {
         return (
-<<<<<<< HEAD
             <div className="text-center register-box bg-register">
                 <h3 className="mb-05">Registeration</h3>
 
@@ -120,16 +119,6 @@ class Registbar extends React.Component {
                     <button onClick={this.submitHandle} className="ml-05 mt-05">register</button>
                 </div>
 
-=======
-            <div className="inputholder">
-                <div>Registeration</div>
-                <input className="input-box" name="email" tpye="text" placeholder="example@gmail.com" onChange={this.handleInput} />
-                <input className="input-box" name="userId" tpye="text" placeholder="e3134s" onChange={this.handleInput} />
-                <input className="input-box" name="displayName" tpye="text" placeholder="NightKuzan Caster" onChange={this.handleInput} />
-                <input className="input-box" name="hashpassword" tpye="text" placeholder="123456789AB!" onChange={this.handleInput} />
-                <input className="input-box" name="role_id" tpye="text" placeholder="Teacher, Student" onChange={this.handleInput} />
-                <button >Back</button>
->>>>>>> 4c24b16e (only minor change)
             </div>
         )
     }
