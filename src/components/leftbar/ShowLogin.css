@@ -10,7 +10,7 @@
 }
 
 .label-box {
-  width: 30%;
+  width: 25%;
 }
 
 .row-input-box {
@@ -18,6 +18,6 @@
   justify-content: center;
 }
 
-.bg {
-  background-color: purple;
+.bg-login {
+  background-color: orange;
 }

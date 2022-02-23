@@ -36,7 +36,7 @@ class FormLogin extends React.Component {
     }
     render() {
         return (
-            <div className="text-center login-box bg">
+            <div className="text-center login-box bg-login">
                 <form onSubmit={this.handleSubmit}>
 
                     <div className="row-input-box">

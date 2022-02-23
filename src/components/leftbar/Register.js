@@ -56,7 +56,7 @@ class Registbar extends React.Component {
     render() {
         return (
             <div className="text-center register-box bg-register">
-                <h3 className="mb-05">Registeration</h3>
+                <h3 className="mb-1 mt-1">Registeration</h3>
 
                 <div className="row-input-box">
                     <div className="label-box mt-05">
@@ -112,7 +112,7 @@ class Registbar extends React.Component {
                     </div>
                 </div>
 
-                <div className="two-btn-box">
+                <div className="two-btn-box mb-1">
                     <button onClick={this.backHandle} className="mt-05">Back</button>
                     <button onClick={this.submitHandle} className="ml-05 mt-05">register</button>
                 </div>

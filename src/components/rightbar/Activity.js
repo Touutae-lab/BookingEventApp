@@ -45,16 +45,20 @@ class Activity extends React.Component {
 
     render() {
         return (
-            <div className="RightBar center mt-3">
+            <div className="RightBar center mt-3 bg activity-box bg-activity">
                 <div className="text-center">
-                    <h1 className="text">Activity</h1>
+                    <h2 className="mb-1 mt-1">Activity</h2>
                 </div>
 
 
+
                 <form onSubmit={this.handleSubmit}>
-                    <div>
-                        <div className="input-box mt-05">
-                            <label>title:</label>
+
+                    <div className="row-input-box field-activity">
+                        <div className="label-box mt-05">
+                            <label className="text-right">title :</label>
+                        </div>
+                        <div className="input-box ">
                             <input
                                 name="title"
                                 type="text"
@@ -63,9 +67,13 @@ class Activity extends React.Component {
                                 placeholder="title"
                             />
                         </div>
+                    </div>
 
-                        <div className="input-box mt-05">
-                            <label>location:</label>
+                    <div className="row-input-box field-activity">
+                        <div className="label-box mt-05">
+                            <label className="text-right">location :</label>
+                        </div>
+                        <div className="input-box ">
                             <input
                                 name="location"
                                 type="text"
@@ -74,11 +82,13 @@ class Activity extends React.Component {
                                 placeholder="location"
                             />
                         </div>
+                    </div>
 
-
-                        <div className="input-box mt-05">
-                            <label>start:</label>
-
+                    <div className="row-input-box field-activity">
+                        <div className="label-box mt-05">
+                            <label className="text-right">start :</label>
+                        </div>
+                        <div className="input-box ">
                             <input
                                 name="start"
                                 type="text"
@@ -87,11 +97,13 @@ class Activity extends React.Component {
                                 placeholder="start"
                             />
                         </div>
+                    </div>
 
-
-
-                        <div className="input-box mt-05">
-                            <label>end:</label>
+                    <div className="row-input-box field-activity">
+                        <div className="label-box mt-05">
+                            <label className="text-right">end :</label>
+                        </div>
+                        <div className="input-box ">
                             <input
                                 name="end"
                                 type="text"
@@ -100,10 +112,13 @@ class Activity extends React.Component {
                                 placeholder="end"
                             />
                         </div>
+                    </div>
 
-                        <div className="input-box mt-05">
-                            <label>people:</label>
-
+                    <div className="row-input-box field-activity">
+                        <div className="label-box mt-05">
+                            <label className="text-right">people :</label>
+                        </div>
+                        <div className="input-box ">
                             <input
                                 name="people"
                                 type="text"
@@ -112,25 +127,27 @@ class Activity extends React.Component {
                                 placeholder="people"
                             />
                         </div>
+                    </div>
 
-                        <div className="input-big-box mt-05">
-                            <label>description:</label>
+                    <div className="row-input-box field-activity">
+                        <div className="label-box mt-05">
+                            <label className="text-right">description :</label>
+                        </div>
+                        <div className="input-box ">
                             <textarea
-                                className="mt-05"
-                                rows="5"
-                                cols="43"
-                                id="TITLE"
+                                rows="4"
+                                cols="16"
                                 name="description"
                                 type="text"
                                 value={this.state.description}
                                 onChange={this.changeHandler}
                                 placeholder="description">
-
                             </textarea>
                         </div>
                     </div>
-                    <div className="text-center mt-1">
-                        <button >Done</button>
+
+                    <div className="text-center mt-05 mb-05">
+                        <button className="mr-05">Done</button>
                         <button >Delete</button>
                     </div>
                 </form>

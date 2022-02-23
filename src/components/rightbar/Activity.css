@@ -6,3 +6,12 @@
 .input-big-box {
   padding: 0.5rem;
 }
+
+.activity-box {
+  width: 100%;
+  position: absolute;
+}
+
+.bg-activity {
+  background-color: lightseagreen;
+}
