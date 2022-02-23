@@ -6,13 +6,14 @@ class Activity extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            title: "123454567",
-            location: "23456",
-            start: "34567",
-            end: "45678",
-            people: "56789",
-            description: "67890",
-            currentPage: "viewActivity",
+            title: "",
+            location: "",
+            start: "",
+            end: "",
+            people: "",
+            description: "",
+            currentPage: "allActivity",
+            highdate: props.highdate, // highdate = ["2-2-2022", "10-2-2022"]
         }
     }
 
@@ -38,11 +39,43 @@ class Activity extends React.Component {
         this.setPage("viewActivity");
     }
 
+    addActivity = (e) => {
+        e.preventDefault();
+        alert("add activity success");
+        // add activity to server
+        this.setPage("viewActivity");
+    }
+
     deleteActivity = (e) => {
         e.preventDefault();
         alert("delete activity success");
         // delete activity to server
-        this.setPage("viewActivity");
+        this.setPage("allActivity");
+    }
+
+    allActivityPage() {
+        return (
+            <div className="all-ac-box">
+                <div className=" mt-3 activity-box bg-activity">
+                    <div className="text-center">
+                        <h2 className="mb-1 mt-1">Today Activity</h2>
+                    </div>
+                </div>
+
+                <div className=" mt-3 activity-box bg-activity your-ac-box">
+                    <div className="text-center">
+                        <h2 className="mb-1 mt-1">Your Activity</h2>
+                    </div>
+                </div>
+
+                <div className="box-test-btn">
+                    <button onClick={() => { this.setPage("viewActivity") }}>view Activity</button>
+                    <button className="ml-05" onClick={() => { this.setPage("editActivity") }}>edit Activity</button>
+                    <button className="ml-05" onClick={() => { this.setPage("addActivity") }}>add Activity</button>
+                    <p>button for test multi page !!</p>
+                </div>
+            </div>
+        )
     }
 
     viewActivityPage() {
@@ -107,9 +140,120 @@ class Activity extends React.Component {
                 </div>
 
                 <div className="text-center mt-05 mb-05">
+                    <button className="mr-05" onClick={() => { this.setPage("allActivity") }}>Back</button>
                     <button onClick={() => { this.setPage("editActivity") }} className="mr-05">Edit</button>
                     <button onClick={(e) => { this.deleteActivity(e) }}>Delete</button>
                 </div>
+            </div>
+        );
+    }
+
+    addActivityPage() {
+        return (
+            <div className="RightBar center mt-3 bg activity-box bg-activity">
+                <div className="text-center">
+                    <h2 className="mb-1 mt-1">Add Activity</h2>
+                </div>
+
+                <form onSubmit={this.addActivity}>
+
+                    <div className="row-input-box field-activity">
+                        <div className="label-box mt-05">
+                            <label className="text-right">title :</label>
+                        </div>
+                        <div className="input-box ">
+                            <input
+                                name="title"
+                                type="text"
+                                value={this.state.title}
+                                onChange={this.changeHandler}
+                                placeholder="title"
+                            />
+                        </div>
+                    </div>
+
+                    <div className="row-input-box field-activity">
+                        <div className="label-box mt-05">
+                            <label className="text-right">location :</label>
+                        </div>
+                        <div className="input-box ">
+                            <input
+                                name="location"
+                                type="text"
+                                value={this.state.location}
+                                onChange={this.changeHandler}
+                                placeholder="location"
+                            />
+                        </div>
+                    </div>
+
+                    <div className="row-input-box field-activity">
+                        <div className="label-box mt-05">
+                            <label className="text-right">start :</label>
+                        </div>
+                        <div className="input-box ">
+                            <input
+                                name="start"
+                                type="text"
+                                value={this.state.start}
+                                onChange={this.changeHandler}
+                                placeholder="start"
+                            />
+                        </div>
+                    </div>
+
+                    <div className="row-input-box field-activity">
+                        <div className="label-box mt-05">
+                            <label className="text-right">end :</label>
+                        </div>
+                        <div className="input-box ">
+                            <input
+                                name="end"
+                                type="text"
+                                value={this.state.end}
+                                onChange={this.changeHandler}
+                                placeholder="end"
+                            />
+                        </div>
+                    </div>
+
+                    <div className="row-input-box field-activity">
+                        <div className="label-box mt-05">
+                            <label className="text-right">people :</label>
+                        </div>
+                        <div className="input-box ">
+                            <input
+                                name="people"
+                                type="text"
+                                value={this.state.people}
+                                onChange={this.changeHandler}
+                                placeholder="people"
+                            />
+                        </div>
+                    </div>
+
+                    <div className="row-input-box field-activity">
+                        <div className="label-box mt-05">
+                            <label className="text-right">description :</label>
+                        </div>
+                        <div className="input-box ">
+                            <textarea
+                                rows="4"
+                                cols="16"
+                                name="description"
+                                type="text"
+                                value={this.state.description}
+                                onChange={this.changeHandler}
+                                placeholder="description">
+                            </textarea>
+                        </div>
+                    </div>
+
+                    <div className="text-center mt-05 mb-05">
+                        <button onClick={() => { this.setPage("allActivity") }}>Back</button>
+                        <button type="submit" className="ml-05">Done</button>
+                    </div>
+                </form>
             </div>
         );
     }
@@ -228,10 +372,14 @@ class Activity extends React.Component {
 
     render() {
         switch (this.state.currentPage) {
+            case "allActivity":
+                return this.allActivityPage();
             case "editActivity":
                 return this.editActivityPage();
             case "viewActivity":
                 return this.viewActivityPage();
+            case "addActivity":
+                return this.addActivityPage();
             default:
                 return (<div>NO PAGE</div>)
         }

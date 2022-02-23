@@ -19,3 +19,17 @@
 .input-box-size {
   width: 30%;
 }
+
+.your-ac-box {
+  margin-top: 35rem;
+}
+
+.box-test-btn {
+  margin-top: 10rem;
+}
+
+.all-ac-box {
+  width: 100%;
+  position: absolute;
+  text-align: center;
+}
