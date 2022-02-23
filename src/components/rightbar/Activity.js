@@ -13,6 +13,7 @@ class Activity extends React.Component {
             people: "",
             description: "",
             currentPage: "allActivity",
+            highdate: props.highdate, // highdate = ["2-2-2022", "10-2-2022"]
         }
     }
 
@@ -54,7 +55,7 @@ class Activity extends React.Component {
 
     allActivityPage() {
         return (
-            <div>
+            <div className="all-ac-box">
                 <div className=" mt-3 activity-box bg-activity">
                     <div className="text-center">
                         <h2 className="mb-1 mt-1">Today Activity</h2>
@@ -65,6 +66,13 @@ class Activity extends React.Component {
                     <div className="text-center">
                         <h2 className="mb-1 mt-1">Your Activity</h2>
                     </div>
+                </div>
+
+                <div className="box-test-btn">
+                    <button onClick={() => { this.setPage("viewActivity") }}>view Activity</button>
+                    <button className="ml-05" onClick={() => { this.setPage("editActivity") }}>edit Activity</button>
+                    <button className="ml-05" onClick={() => { this.setPage("addActivity") }}>add Activity</button>
+                    <p>button for test multi page !!</p>
                 </div>
             </div>
         )
@@ -132,6 +140,7 @@ class Activity extends React.Component {
                 </div>
 
                 <div className="text-center mt-05 mb-05">
+                    <button className="mr-05" onClick={() => { this.setPage("allActivity") }}>Back</button>
                     <button onClick={() => { this.setPage("editActivity") }} className="mr-05">Edit</button>
                     <button onClick={(e) => { this.deleteActivity(e) }}>Delete</button>
                 </div>
