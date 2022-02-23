@@ -4,14 +4,14 @@
 
 .Link {
   cursor: pointer;
-  color: #b2cafa;
+  color: #61afef;
 }
 .Link:hover {
-  border-bottom: 2px solid #b2cafa;
+  border-bottom: 2px solid #61afef;
 }
 
 .text-box {
-  margin-top: 17rem;
+  color: #e0e5ef;
+  margin-top: 1.5em;
   width: 100%;
-  position: absolute;
 }

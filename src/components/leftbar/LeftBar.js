@@ -1,8 +1,7 @@
 import "./LeftBar.css";
 
 import axios from "axios";
-import React from 'react';
-
+import React from "react";
 
 import ShowDate from "./ShowDate";
 import ShowLogin from "./ShowLogin";
@@ -25,8 +24,8 @@ class LeftBar extends React.Component {
 
   setUserData(userData) {
     this.setState({
-      userData: userData
-    })
+      userData: userData,
+    });
   }
   handleClick() {
     this.setState({ currentPage: "Register" });
@@ -35,9 +34,7 @@ class LeftBar extends React.Component {
   setPage = (page) => {
     this.setState({ currentPage: page });
     this.forceUpdate();
-  }
-
-
+  };
 
   render() {
     if (this.state.currentPage === "Login") {
@@ -47,26 +44,29 @@ class LeftBar extends React.Component {
 
           <ShowLogin setUserData={this.setUserData} />
 
-          <div className="mt-1 text-center text-box">You are not member yet?
-            <a className="Link" onClick={this.handleClick} style={{ cursor: 'pointer' }}>  Create account </a>
+          <div className="mt-1 text-center text-box">
+            You are not member yet?{" "}
+            <a
+              className="Link"
+              onClick={this.handleClick}
+              style={{ cursor: "pointer" }}
+            >
+              Create account
+            </a>
           </div>
         </div>
-      )
-    }
-    else if (this.state.currentPage === "Register") {
+      );
+    } else if (this.state.currentPage === "Register") {
       return (
         <div>
           <ShowDate />
           <Registbar setPage={this.setPage} />
         </div>
-      )
+      );
+    } else if (this.state.currentPage === "User") {
+      return <ShowUser />;
     }
-    else if (this.state.currentPage === "User") {
-      return (
-        <ShowUser />
-      )
-    }
-    return <div>Something went wrongs</div>
+    return <div>Something went wrongs</div>;
   }
 }
 

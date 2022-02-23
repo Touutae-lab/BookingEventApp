@@ -2,8 +2,6 @@ html,
 body {
   width: 100%;
   height: 100%;
-  margin: 0px;
-  padding: 0px;
 }
 
 /* #===- box -===# */
@@ -16,21 +14,21 @@ body {
 .leftbar-box {
   width: 20%;
   display: flex;
-  background-color: cornsilk;
+  justify-content: center;
+  background-color: #20232a;
   position: relative;
 }
 
 .midbar-box {
-  width: 60%;
   display: flex;
-  background-color: darkgoldenrod;
+  justify-content: center;
   position: relative;
 }
 
 .rightbar-box {
   width: 20%;
   display: flex;
-  background-color: cornsilk;
+  background-color: #20232a;
   position: relative;
 }
 
@@ -119,7 +117,7 @@ body {
 }
 
 .mb-35 {
-  margin-bottom: 3.5rem2;
+  margin-bottom: 3.5rem;
 }
 
 .mb-4 {

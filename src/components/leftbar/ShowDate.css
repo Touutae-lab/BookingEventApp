@@ -1,13 +1,11 @@
 .showdate-color {
-  background-color: crimson;
+  color: #282c34;
+  background-color: #98c379;
 }
 
 .showdate-box {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-}
-
-.full-width {
-  width: 100%;
-  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 50px;
+  border-radius: 25px;
 }
