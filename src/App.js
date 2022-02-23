@@ -2,7 +2,6 @@ import './App.css';
 import React from 'react';
 
 import NavigationBar from './components/NavigationBar';
-import RightBar_ShowActi from './components/RightBar_ShowActi';
 
 import RightBar from './components/rightbar/RightBar';
 import LeftBar from './components/leftbar/LeftBar';
@@ -12,22 +11,32 @@ class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      currentDate: new Date(),
+      activities: "",
+      
     }
+    this.handleDisplayday = this.handleDisplayday.bind(this);
+  }
+  handleDisplayday = e => {
+    this.setState({currentDate: e})
+  }
+  handleActivitie = e => {
+    this.setState({activities: e})
   }
 
   render() {
     return (
       <div className="mainbar-box">
         <div className='leftbar-box'>
-          <LeftBar />
+          <LeftBar activities = {this.handleActivitie}/>
         </div>
 
         <div className='midbar-box'>
-          <MidBar />
+          <MidBar currentDate={this.handleDisplayday}/>
         </div>
 
         <div className='rightbar-box'>
-          <RightBar />
+          <RightBar currentDate={this.state.currentDate} activities={this.state.activities}/>
         </div>
       </div>
     )

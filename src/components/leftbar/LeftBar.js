@@ -34,7 +34,19 @@ class LeftBar extends React.Component {
   setPage = (page) => {
     this.setState({ currentPage: page });
     this.forceUpdate();
-  };
+  }
+  componentDidUpdate() {
+    if (this.state.userData != null) {
+        axios.get("http://ec2-13-229-129-189.ap-southeast-1.compute.amazonaws.com/" + this.state.userData.user_id)
+        .then((res) => {
+          if (res.status === 200) {
+            this.props.activities(res);
+          }
+        })
+  }
+}
+
+
 
   render() {
     if (this.state.currentPage === "Login") {

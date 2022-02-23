@@ -22,15 +22,15 @@ class FormLogin extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log({
-      email: this.state.email,
-      hashpassword: this.state.password,
-    });
     axios
-      .get(
-        "http://ec2-13-229-129-189.ap-southeast-1.compute.amazonaws.com/login"
+      .post(
+        "http://ec2-13-229-129-189.ap-southeast-1.compute.amazonaws.com/login", {
+            email: this.state.email,
+            hashPassword: this.state.password
+        }
       )
       .then((res) => {
+        this.props.setUserdata(res);
         alert(res.data.message ?? res.data.error);
       })
       .catch((err) => {
