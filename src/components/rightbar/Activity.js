@@ -72,7 +72,7 @@ class Activity extends React.Component {
                     <button onClick={() => { this.setPage("viewActivity") }}>view Activity</button>
                     <button className="ml-05" onClick={() => { this.setPage("editActivity") }}>edit Activity</button>
                     <button className="ml-05" onClick={() => { this.setPage("addActivity") }}>add Activity</button>
-                    <p>button for test multi page !!</p>
+                    <p className="text-white">button for test multi page !!</p>
                 </div>
             </div>
         )
@@ -360,8 +360,8 @@ class Activity extends React.Component {
                     </div>
 
                     <div className="text-center mt-05 mb-05">
-                        <button type="submit" className="mr-05">Done</button>
-                        <button onClick={(e) => { this.deleteActivity(e) }}>Delete</button>
+                        <button onClick={() => { this.setPage("viewActivity") }}>Back</button>
+                        <button type="submit" className="ml-05">Done</button>
                     </div>
                 </form>
             </div>
