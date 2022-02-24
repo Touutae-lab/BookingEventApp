@@ -37,6 +37,9 @@ class LeftBar extends React.Component {
     this.setState({ currentPage: page });
     this.forceUpdate();
   }
+  getPage = () => {
+    return this.state.currentPage;
+  }
 
 
 

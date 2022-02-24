@@ -18,12 +18,6 @@ class MidBar extends React.Component {
   handleEvent(e) {
     this.setState({ highdate: e });
   }
-
-  onChange(e) {
-    this.setState({ value: e });
-    this.props.currentDate(this.convertdate(e))
-  }
-
   convertdate(x) {
     return (
       x.getDate().toString() +
@@ -33,6 +27,11 @@ class MidBar extends React.Component {
       x.getFullYear().toString()
     );
   }
+
+  onChange(e) {
+    this.setState({ value: e });
+    this.props.currentDate(this.convertdate(e))
+  }
   render() {
     return (
       <div>
@@ -40,7 +39,7 @@ class MidBar extends React.Component {
           onChange={this.onChange}
           value={this.state.value}
           tileClassName={({ date }) => {
-            if (this.state.highdate.find((x) => x === this.convertdate(date))) {
+            if (this.props.hightdate.find((x) => x === this.convertdate(date))) {
               return "hightlight";
             }
           }}

@@ -299,7 +299,7 @@ class Activity extends React.Component {
 
                     <div className="text-center mt-05 mb-05">
                         <button onClick={() => { this.setPage("allActivity") }}>Back</button>
-                        <button type="submit" className="ml-05">Done</button>
+                        <button onClick={() => {}}type="submit" className="ml-05">Done</button>
                     </div>
                 </form>
             </div>
