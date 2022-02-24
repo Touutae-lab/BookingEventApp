@@ -6,17 +6,15 @@ class Registbar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: "",
       displayName: "",
       hashpassword: "",
       role_id: "",
       email: "",
-      username: "",
     };
     this.handleInput = this.handleInput.bind(this);
   }
   handlePage = () => {};
-  
+
   handleInput = (e) => {
     let names = e.target.name;
     let value = e.target.value;
@@ -37,7 +35,7 @@ class Registbar extends React.Component {
           hashpassword: this.state.hashpassword,
           role_id: 2,
           email: this.state.email,
-          username: this.state.username,
+          username: this.state.displayName,
         }
       )
       .then((res) => {
@@ -73,26 +71,12 @@ class Registbar extends React.Component {
             />
           </div>
         </div>
-        <div className="row-input-box">
-          <div className="label-box mt-05">
-            <label className="text-right">Username: </label>
-          </div>
-          <div className="input-box ">
-            <input
-              className="input-box-regis"
-              name="username"
-              type="text"
-              placeholder="username"
-              onChange={this.handleInput}
-            />
-          </div>
-        </div>
 
         <div className="row-input-box">
-          <div className="label-box mt-05">
-            <label className="text-right">Name: </label>
+          <div className="label-box">
+            <label className="text-right">Username: </label>
           </div>
-          <div className="input-box ">
+          <div className="input-box">
             <input
               className="input-box-regis"
               name="displayName"
@@ -104,7 +88,7 @@ class Registbar extends React.Component {
         </div>
 
         <div className="row-input-box">
-          <div className="label-box mt-05">
+          <div className="label-box ">
             <label className="text-right">Password: </label>
           </div>
           <div className="input-box ">
@@ -119,7 +103,7 @@ class Registbar extends React.Component {
         </div>
 
         <div className="row-input-box">
-          <div className="label-box mt-05">
+          <div className="label-box">
             <label className="text-right">Role: </label>
           </div>
           <div className="input-box ">

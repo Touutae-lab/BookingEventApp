@@ -1,6 +1,7 @@
 .input-box {
   display: flex;
-  padding: 0.5rem;
+  justify-content: center;
+  margin: 0.5rem;
 }
 
 .input-big-box {
@@ -12,8 +13,20 @@
   position: absolute;
 }
 
-.bg-activity {
-  background-color: lightseagreen;
+.bg-todayActivity {
+  padding: 10px 0px;
+  background-color: #98c379;
+  font-size: 18px;
+  color: #20232a;
+  margin-bottom: 10px;
+}
+
+.bg-yourActivity {
+  padding: 10px 0px;
+  background-color: #282c34;
+  font-size: 18px;
+  color: #abb2bf;
+  margin-bottom: 10px;
 }
 
 .input-box-size {
@@ -47,9 +60,16 @@
 }
 
 .datetime-picker-box {
-  width: 44%;
+  width: 189px;
 }
 
 .btn-activity {
   width: 80%;
+}
+
+.buttonRow {
+  margin: 20px;
+}
+
+.row-input-box {
 }

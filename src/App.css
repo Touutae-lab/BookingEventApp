@@ -7,18 +7,46 @@ body {
 button {
   padding: 10px 20px;
   border-radius: 100px;
+  margin: 10px 20px;
   border: 0px;
   color: #20232a;
 }
 
+button:hover {
+  background-color: #b8b8bf;
+  color: black;
+}
+
+button:active {
+  outline: 3px solid #e86671;
+  background-color: #abb2bf;
+}
+
 input {
-  padding: 5px 10px;
+  padding: 8px 10px;
   border-radius: 10px;
   box-sizing: border-box;
   border: none;
-  outline: none;
+  outline: transparent;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
 }
 input:focus {
+  outline: 3px solid #61afef;
+}
+
+textarea {
+  width: 189px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  box-sizing: border-box;
+  border: none;
+  outline: transparent;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+textarea:focus {
   outline: 3px solid #61afef;
 }
 /* #===- box -===# */
@@ -28,6 +56,9 @@ input:focus {
   justify-content: center;
 }
 
+label {
+  margin-right: 5px;
+}
 .leftbar-box {
   width: 20vw;
   display: flex;
@@ -45,6 +76,7 @@ input:focus {
 .rightbar-box {
   width: 20vw;
   display: flex;
+  justify-content: center;
   background-color: #20232a;
   position: relative;
 }
