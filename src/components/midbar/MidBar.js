@@ -30,7 +30,7 @@ class MidBar extends React.Component {
 
   onChange(e) {
     this.setState({ value: e });
-    this.props.currentDate(this.convertdate(e))
+    this.props.currentDate(e)
   }
   render() {
     return (

@@ -75,9 +75,11 @@ class App extends React.Component {
       );
     }
   };
-
+  componentDidMount() {
+    this.handleActivities()
+  }
   componentDidUpdate() {
-    if (this.state.tokens != "" && this.activities === []) {
+    if (this.state.tokens != "" && this.state.activities === []) {
       axios.get("http://ec2-13-229-129-189.ap-southeast-1.compute.amazonaws.com/getUserActivity/" + this.state.tokens)
       .then(res => {
         if (res.status === 200) {
@@ -103,7 +105,7 @@ class App extends React.Component {
         </div>
 
         <div className='rightbar-box'>
-          <RightBar currentDate={this.state.currentDate} activities={this.state.activities}/>
+          <RightBar currentDate={this.state.currentDate} activity={this.state.activities} tokens={this.state.tokens}/>
         </div>
       </div>
     );
