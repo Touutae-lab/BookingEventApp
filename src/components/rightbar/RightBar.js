@@ -10,6 +10,11 @@ class RightBar extends React.Component {
     this.state = {
       currentPage: "activity",
     }
+    //this.props.currentDate; // day
+    //this.props.activities; // activities
+  }
+  dayMapping() {
+    
   }
 
   render() {

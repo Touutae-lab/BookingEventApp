@@ -7,7 +7,7 @@ class MidBar extends React.Component {
     super(props);
     this.state = {
       value: new Date(),
-      highdate: ["2-2-2022", "10-2-2022"],
+      highdate: [],
       userData: {},
       loginStatus: {},
     };
@@ -21,6 +21,7 @@ class MidBar extends React.Component {
 
   onChange(e) {
     this.setState({ value: e });
+    this.props.currentDate(this.convertdate(e))
   }
 
   convertdate(x) {

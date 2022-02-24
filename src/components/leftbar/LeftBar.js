@@ -27,6 +27,7 @@ class LeftBar extends React.Component {
     this.setState({
       userData: Data.data,
     });
+    this.props.tokens(this.state.userData.userdata.user_id)
   }
   handleClick() {
     this.setState({ currentPage: "Register" });
@@ -35,25 +36,6 @@ class LeftBar extends React.Component {
   setPage = (page) => {
     this.setState({ currentPage: page });
     this.forceUpdate();
-  }
-
-  getPage = () => {
-    return this.state.currentPage;
-  }
-
-  componentDidUpdate() {
-
-    if (this.state.userData != null && this.state.userData.status === 200) {
-      axios.get("http://ec2-13-229-129-189.ap-southeast-1.compute.amazonaws.com/getUserActivity/" + this.state.userData.userdata.user_id)
-        .then((res) => {
-          if (res.status === 200) {
-            this.props.activities(res);
-          }
-          else if (res.status === 400) {
-            this.props.activities([])
-          }
-        })
-    }
   }
 
 
