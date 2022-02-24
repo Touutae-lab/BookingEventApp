@@ -12,6 +12,7 @@ class FormLogin extends React.Component {
     };
     this.changeHandler = this.changeHandler.bind(this);
   }
+
   changeHandler = (e) => {
     let value = e.target.value;
 
@@ -32,54 +33,72 @@ class FormLogin extends React.Component {
       .then((res) => {
         this.props.setUserData(res);
         this.setState({ userdata: res })
-        res.status === 200 ? console.log("Login success") : alert(res.data.message ?? res.data.error);
+        if (res.status === 200) {
+          console.log("Login success")
+        } else {
+          alert(res.data.message ?? res.data.error);
+        }
       })
       .catch((err) => {
         alert(err.message);
       });
   };
+
+  logout = () => {
+    this.props.setPage("Login")
+    this.props.setUserData("");
+    this.setState({ userdata: "", });
+  }
+
+
   componentDidUpdate() {
     if (this.state.userdata.status === 200) {
       this.props.setPage("User")
     }
   }
-  render() {
-    return (
-      <div className="text-center login-box">
-        <form onSubmit={this.handleSubmit}>
-          <div className="row-input-box">
-            <div className="label-box mt-05">
-              <label className="text-right">Email: </label>
-            </div>
-            <div className="input-box ">
-              <input
-                type="email"
-                placeholder="example@gmail.com"
-                name="email"
-                onChange={this.changeHandler}
-              />
-            </div>
-          </div>
 
-          <div className="row-input-box">
-            <div className="label-box mt-05">
-              <label className="text-right">Password: </label>
-            </div>
-            <div className="input-box ">
-              <input
-                type="password"
-                placeholder="12345678"
-                name="password"
-                onChange={this.changeHandler}
-              />
-            </div>
+  render() {
+    switch (this.props.getPage()) {
+      case "User":
+        return (<div className="text-center mt-2"><button onClick={() => { this.logout() }}>Logout</button></div>)
+      case "Login":
+        return (
+          <div className="text-center login-box">
+            <form onSubmit={this.handleSubmit}>
+              <div className="row-input-box">
+                <div className="label-box mt-05">
+                  <label className="text-right">Email: </label>
+                </div>
+                <div className="input-box ">
+                  <input
+                    type="email"
+                    placeholder="example@gmail.com"
+                    name="email"
+                    onChange={this.changeHandler}
+                  />
+                </div>
+              </div>
+
+              <div className="row-input-box">
+                <div className="label-box mt-05">
+                  <label className="text-right">Password: </label>
+                </div>
+                <div className="input-box ">
+                  <input
+                    type="password"
+                    placeholder="12345678"
+                    name="password"
+                    onChange={this.changeHandler}
+                  />
+                </div>
+              </div>
+              <button className="mb-05 mt-05" type="submit">
+                Login
+              </button>
+            </form>
           </div>
-          <button className="mb-05 mt-05" type="submit">
-            Login
-          </button>
-        </form>
-      </div>
-    );
+        );
+    }
   }
 }
 

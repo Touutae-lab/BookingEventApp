@@ -36,6 +36,11 @@ class LeftBar extends React.Component {
     this.setState({ currentPage: page });
     this.forceUpdate();
   }
+
+  getPage = () => {
+    return this.state.currentPage;
+  }
+
   componentDidUpdate() {
 
     if (this.state.userData != null && this.state.userData.status === 200) {
@@ -59,7 +64,7 @@ class LeftBar extends React.Component {
         <div>
           <ShowDate />
 
-          <ShowLogin setUserData={this.setUserData} setPage={this.setPage} />
+          <ShowLogin setUserData={this.setUserData} setPage={this.setPage} getPage={this.getPage} />
 
           <div className="mt-1 text-center text-box">
             You are not member yet?{" "}
@@ -85,6 +90,7 @@ class LeftBar extends React.Component {
         <div>
           <ShowDate />
           <ShowUser userData={this.state.userData.userdata} />;
+          <ShowLogin setUserData={this.setUserData} setPage={this.setPage} getPage={this.getPage} />
         </div>
       );
     }
