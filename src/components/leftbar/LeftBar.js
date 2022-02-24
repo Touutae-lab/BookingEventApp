@@ -27,7 +27,7 @@ class LeftBar extends React.Component {
     this.setState({
       userData: Data.data,
     });
-    this.props.tokens(this.state.userData.userdata.user_id)
+    this.props.tokens(this.state.userData.userdata.user_id);
   }
   handleClick() {
     this.setState({ currentPage: "Register" });
@@ -36,9 +36,7 @@ class LeftBar extends React.Component {
   setPage = (page) => {
     this.setState({ currentPage: page });
     this.forceUpdate();
-  }
-
-
+  };
 
   render() {
     if (this.state.currentPage === "Login") {
@@ -46,7 +44,11 @@ class LeftBar extends React.Component {
         <div>
           <ShowDate />
 
-          <ShowLogin setUserData={this.setUserData} setPage={this.setPage} getPage={this.getPage} />
+          <ShowLogin
+            setUserData={this.setUserData}
+            setPage={this.setPage}
+            getPage={this.getPage}
+          />
 
           <div className="mt-1 text-center text-box">
             You are not member yet?{" "}
@@ -72,7 +74,11 @@ class LeftBar extends React.Component {
         <div>
           <ShowDate />
           <ShowUser userData={this.state.userData.userdata} />;
-          <ShowLogin setUserData={this.setUserData} setPage={this.setPage} getPage={this.getPage} />
+          <ShowLogin
+            setUserData={this.setUserData}
+            setPage={this.setPage}
+            getPage={this.getPage}
+          />
         </div>
       );
     }
