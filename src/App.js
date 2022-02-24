@@ -7,17 +7,37 @@ import RightBar from "./components/rightbar/RightBar";
 import LeftBar from "./components/leftbar/LeftBar";
 import MidBar from "./components/midbar/MidBar";
 import axios from "axios";
+import { Prev } from "react-bootstrap/esm/PageItem";
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       currentDate: new Date(),
-      activities: {},
+      activities: [
+        {
+          activity_name: "ทดสอบ",
+          description: "ทดสอบ",
+          start_datetime: "2022-02-02 13:00:00",
+          end_datetime: "2022-03-02 14:00:00",
+          location: "ภาคคอม",
+          organizer: "AAA",
+        },
+        {
+          activity_name: "ทดสอบ2",
+          description: "ทดสอบ2",
+          start_datetime: "2022-02-02 13:00:00",
+          end_datetime: "2022-02-04 14:00:00",
+          location: "ภาคคอม",
+          organizer: "AAA",
+        },
+      ],
       tokens: "",
       highdate: [],
+      dateArray: [],
     };
     this.handleDisplayday = this.handleDisplayday.bind(this);
+    this.dayRange = this.dayRange.bind(this);
   }
   handleDisplayday = (e) => {
     this.setState({ currentDate: e });
@@ -25,15 +45,41 @@ class App extends React.Component {
   handleTokens = (e) => {
     this.setState({ tokens: e });
   };
+
   dayRange = (startDate, endDate) => {
-    var dateArray = new Array();
     var currentDate = startDate;
+    var data = [];
     while (currentDate <= endDate) {
-      dateArray.push(new Date(currentDate));
-      currentDate = currentDate.addDays(1);
+      console.log(currentDate);
+      if (data.includes(this.convertdate(currentDate))) {
+      } else {
+        data.push(this.convertdate(currentDate));
+      }
+      currentDate.setDate(currentDate.getDate() + 1);
     }
-    return dateArray;
+    this.setState((Prev) => ({
+      dateArray: [...Prev.dateArray, ...data],
+    }));
   };
+  convertdate(x) {
+    return (
+      x.getDate().toString() +
+      "-" +
+      (x.getMonth() + 1).toString() +
+      "-" +
+      x.getFullYear().toString()
+    );
+  }
+  mapTest = () => {
+    for (let i = 0; i < this.state.activities.length; i++) {
+      let member = this.state.activities[i];
+      this.dayRange(
+        new Date(member.start_datetime),
+        new Date(member.end_datetime)
+      );
+    }
+  };
+
   componentDidUpdate() {
     if (this.state.tokens != "" && this.activities != {}) {
       axios
@@ -43,6 +89,7 @@ class App extends React.Component {
         )
         .then((res) => {
           if (res.status === 200) {
+            this.mapTest();
             this.setState({ activities: res });
           }
         });
@@ -57,15 +104,20 @@ class App extends React.Component {
         </div>
 
         <div className="midbar-box">
-          <MidBar currentDate={this.handleDisplayday} />
+          <MidBar
+            currentDate={this.handleDisplayday}
+            hightdate={this.state.dateArray}
+          />
         </div>
 
         <div className="rightbar-box">
           <RightBar
             currentDate={this.state.currentDate}
             activities={this.state.activities}
-            token={this.state.tokens}
           />
+          <button onClick={this.mapTest} type="submit">
+            dsdas
+          </button>
         </div>
       </div>
     );
