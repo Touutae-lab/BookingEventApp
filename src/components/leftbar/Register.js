@@ -15,8 +15,8 @@ class Registbar extends React.Component {
     };
     this.handleInput = this.handleInput.bind(this);
   }
-  handlePage = () => {};
-  
+  handlePage = () => { };
+
   handleInput = (e) => {
     let names = e.target.name;
     let value = e.target.value;
@@ -42,8 +42,7 @@ class Registbar extends React.Component {
       )
       .then((res) => {
         console.log(res.data);
-        if (res.data.message == "create user unsuccessfully") {
-          alert("register successfully");
+        if (res.status == 200) {
           this.props.setPage("Login");
         } else {
           alert(res.data.message);
