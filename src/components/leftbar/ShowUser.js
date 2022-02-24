@@ -8,19 +8,24 @@ class ShowUser extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            name: props.name,
         }
     }
 
     render() {
         return (
+            <div>
+                
+            <div>
+                <h1>HI</h1>
+            </div>
             <div className="text-center">
                 <Avatar sx={{ bgcolor: deepOrange[500], width: 56, height: 56 }} className="img-center">
-                    {this.state.name[0]}
+                    {this.props.userData.name[0]}
                 </Avatar>
 
-                <h2>{this.state.name}</h2>
+                <h2>{this.props.userData.name}</h2>
                 <p>Your Team</p>
+                </div>
             </div>
         );
     }
