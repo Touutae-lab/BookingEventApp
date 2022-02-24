@@ -24,8 +24,16 @@
   margin-top: 35rem;
 }
 
-.box-test-btn {
-  margin-top: 10rem;
+.box-your-btn {
+  width: 100%;
+  margin-top: 39.5rem;
+  position: absolute;
+}
+
+.box-today-btn {
+  width: 100%;
+  margin-top: 7.5rem;
+  position: absolute;
 }
 
 .all-ac-box {
@@ -39,5 +47,9 @@
 }
 
 .datetime-picker-box {
-  width: 40%;
+  width: 44%;
+}
+
+.btn-activity {
+  width: 80%;
 }

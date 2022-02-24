@@ -17,6 +17,7 @@ class Registbar extends React.Component {
     this.handleInput = this.handleInput.bind(this);
   }
   handlePage = () => {};
+  
   handleInput = (e) => {
     let names = e.target.name;
     let value = e.target.value;

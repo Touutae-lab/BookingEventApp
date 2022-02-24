@@ -14,12 +14,15 @@ class MidBar extends React.Component {
     this.onChange = this.onChange.bind(this);
     this.convertdate = this.convertdate.bind(this);
   }
+  
   handleEvent(e) {
     this.setState({ highdate: e });
   }
+
   onChange(e) {
     this.setState({ value: e });
   }
+
   convertdate(x) {
     return (
       x.getDate().toString() +

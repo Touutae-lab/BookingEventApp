@@ -6,6 +6,7 @@ class Activity extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
+            backUp: {},
             title: "",
             location: "",
             start: "",
@@ -15,6 +16,33 @@ class Activity extends React.Component {
             currentPage: "allActivity",
             highdate: props.highdate, // highdate = ["2-2-2022", "10-2-2022"]
         }
+    }
+
+    restore = () => {
+        this.setState({
+            title: this.state.backUp.title,
+            location: this.state.backUp.location,
+            start: this.state.backUp.start,
+            end: this.state.backUp.end,
+            people: this.state.backUp.people,
+            description: this.state.backUp.description,
+        })
+
+        console.log("restore");
+        console.log(this.state.backUp);
+        console.log(this.state);
+        this.setPage("viewActivity");
+    }
+
+    backUp = () => {
+        this.state.backUp = {
+            title: this.state.title,
+            location: this.state.location,
+            start: this.state.start,
+            end: this.state.end,
+            people: this.state.people,
+            description: this.state.description,
+        };
     }
 
     changeHandler = e => {
@@ -68,12 +96,31 @@ class Activity extends React.Component {
                     </div>
                 </div>
 
-                <div className="box-test-btn">
-                    <button onClick={() => { this.setPage("viewActivity") }}>view Activity</button>
-                    <button className="ml-05" onClick={() => { this.setPage("editActivity") }}>edit Activity</button>
+                <div className="box-today-btn">
+                    <button className="btn-activity mt-05" onClick={() => { this.setPage("viewActivity") }}>view Activity</button>
+
+                    <button className="btn-activity mt-05" onClick={() => { this.setPage("viewActivity") }}>view Activity</button>
+
+                    <button className="btn-activity mt-05" onClick={() => { this.setPage("viewActivity") }}>view Activity</button>
+                    {/* <button className="ml-05" onClick={() => { this.setPage("editActivity") }}>edit Activity</button>
                     <button className="ml-05" onClick={() => { this.setPage("addActivity") }}>add Activity</button>
-                    <p className="text-white">button for test multi page !!</p>
+                    <p className="text-white">button for test multi page !!</p> */}
                 </div>
+
+                <div className="box-your-btn">
+                    <button className="btn-activity mt-05" onClick={() => { this.setPage("viewActivity") }}>view Activity</button>
+
+                    <button className="btn-activity mt-05" onClick={() => { this.setPage("viewActivity") }}>view Activity</button>
+
+                    <button className="btn-activity mt-05" onClick={() => { this.setPage("viewActivity") }}>view Activity</button>
+                    {/* <button className="ml-05" onClick={() => { this.setPage("editActivity") }}>edit Activity</button>
+                    <button className="ml-05" onClick={() => { this.setPage("addActivity") }}>add Activity</button>
+                    <p className="text-white">button for test multi page !!</p> */}
+                </div>
+
+
+
+
             </div>
         )
     }
@@ -361,7 +408,7 @@ class Activity extends React.Component {
                     </div>
 
                     <div className="text-center mt-05 mb-05">
-                        <button onClick={() => { this.setPage("viewActivity") }}>Back</button>
+                        <button onClick={() => { this.restore() }}>Back</button>
                         <button type="submit" className="ml-05">Done</button>
                     </div>
                 </form>
@@ -374,12 +421,15 @@ class Activity extends React.Component {
     render() {
         switch (this.state.currentPage) {
             case "allActivity":
+                this.backUp()
                 return this.allActivityPage();
             case "editActivity":
                 return this.editActivityPage();
             case "viewActivity":
+                this.backUp()
                 return this.viewActivityPage();
             case "addActivity":
+                this.backUp()
                 return this.addActivityPage();
             default:
                 return (<div>NO PAGE</div>)
