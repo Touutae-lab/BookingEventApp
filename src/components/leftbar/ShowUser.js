@@ -14,17 +14,13 @@ class ShowUser extends React.Component {
     render() {
         return (
             <div>
-                
-            <div>
-                <h1>HI</h1>
-            </div>
-            <div className="text-center">
-                <Avatar sx={{ bgcolor: deepOrange[500], width: 56, height: 56 }} className="img-center">
-                    {this.props.userData.name[0]}
-                </Avatar>
 
-                <h2>{this.props.userData.name}</h2>
-                <p>Your Team</p>
+                <div className="text-center mt-4">
+                    <Avatar sx={{ bgcolor: deepOrange[500], width: 56, height: 56 }} className="img-center">
+                        {this.props.userData.name[0]}
+                    </Avatar>
+
+                    <h2 className="mt-15 text-white">{this.props.userData.name}</h2>
                 </div>
             </div>
         );
