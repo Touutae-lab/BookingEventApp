@@ -28,6 +28,7 @@ class LeftBar extends React.Component {
       userData: Data.data,
     });
   }
+  
   handleClick() {
     this.setState({ currentPage: "Register" });
   }

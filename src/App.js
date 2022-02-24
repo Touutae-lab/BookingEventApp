@@ -13,30 +13,29 @@ class App extends React.Component {
     this.state = {
       currentDate: new Date(),
       activities: "",
-      
     }
     this.handleDisplayday = this.handleDisplayday.bind(this);
   }
   handleDisplayday = e => {
-    this.setState({currentDate: e})
+    this.setState({ currentDate: e })
   }
   handleActivitie = e => {
-    this.setState({activities: e})
+    this.setState({ activities: e })
   }
 
   render() {
     return (
       <div className="mainbar-box">
         <div className='leftbar-box'>
-          <LeftBar activities = {this.handleActivitie}/>
+          <LeftBar activities={this.handleActivitie} />
         </div>
 
         <div className='midbar-box'>
-          <MidBar currentDate={this.handleDisplayday}/>
+          <MidBar currentDate={this.handleDisplayday} />
         </div>
 
         <div className='rightbar-box'>
-          <RightBar currentDate={this.state.currentDate} activities={this.state.activities}/>
+          <RightBar currentDate={this.state.currentDate} activities={this.state.activities} />
         </div>
       </div>
     )
