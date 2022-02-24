@@ -32,7 +32,7 @@ class ShowActivities extends React.Component  {
         return(
             <div className="activities-contianer">
                 <div className="header">Activities</div>
-                <div className="scroll-handler">{this.handleActivities()}</div>
+                <div className="scroll-handler">{this.handleActivities}</div>
                 
             </div>
         )

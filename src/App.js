@@ -1,13 +1,9 @@
-import "./App.css";
-import React from "react";
-
-import NavigationBar from "./components/NavigationBar";
-
-import RightBar from "./components/rightbar/RightBar";
-import LeftBar from "./components/leftbar/LeftBar";
-import MidBar from "./components/midbar/MidBar";
-import axios from "axios";
-import { Prev } from "react-bootstrap/esm/PageItem";
+import './App.css';
+import React from 'react';
+import RightBar from './components/rightbar/RightBar';
+import LeftBar from './components/leftbar/LeftBar';
+import MidBar from './components/midbar/MidBar';
+import axios from 'axios';
 
 class App extends React.Component {
   constructor(props) {
@@ -70,8 +66,8 @@ class App extends React.Component {
       x.getFullYear().toString()
     );
   }
-  mapTest = () => {
-    for (let i = 0; i < this.state.activities.length; i++) {
+  handleActivities = () => {
+    for(let i=0; i<this.state.activities.length;i++) {
       let member = this.state.activities[i];
       this.dayRange(
         new Date(member.start_datetime),
@@ -81,18 +77,14 @@ class App extends React.Component {
   };
 
   componentDidUpdate() {
-    if (this.state.tokens != "" && this.activities != {}) {
-      axios
-        .get(
-          "http://ec2-13-229-129-189.ap-southeast-1.compute.amazonaws.com/getUserActivity/" +
-            this.state.tokens
-        )
-        .then((res) => {
-          if (res.status === 200) {
-            this.mapTest();
-            this.setState({ activities: res });
-          }
-        });
+    if (this.state.tokens != "" && this.activities === []) {
+      axios.get("http://ec2-13-229-129-189.ap-southeast-1.compute.amazonaws.com/getUserActivity/" + this.state.tokens)
+      .then(res => {
+        if (res.status === 200) {
+          this.setState({activities: res})
+          this.handleActivities()
+        }
+      })
     }
   }
 
@@ -110,14 +102,8 @@ class App extends React.Component {
           />
         </div>
 
-        <div className="rightbar-box">
-          <RightBar
-            currentDate={this.state.currentDate}
-            activities={this.state.activities}
-          />
-          <button onClick={this.mapTest} type="submit">
-            dsdas
-          </button>
+        <div className='rightbar-box'>
+          <RightBar currentDate={this.state.currentDate} activities={this.state.activities}/>
         </div>
       </div>
     );

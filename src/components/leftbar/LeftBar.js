@@ -12,11 +12,11 @@ class LeftBar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      currentPage: "Login",
       token: {
         status: "",
       },
       userData: null,
-      currentPage: "Login",
     };
     // this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
@@ -31,6 +31,9 @@ class LeftBar extends React.Component {
   }
   handleClick() {
     this.setState({ currentPage: "Register" });
+  }
+  getPage = () => {
+    return this.state.currentPage;
   }
 
   setPage = (page) => {
