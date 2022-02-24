@@ -6,7 +6,6 @@ class Registbar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      userId: "",
       username: "",
       displayName: "",
       hashpassword: "",
@@ -33,7 +32,6 @@ class Registbar extends React.Component {
       .post(
         "http://ec2-13-229-129-189.ap-southeast-1.compute.amazonaws.com/users",
         {
-          userId: this.state.userId,
           displayName: this.state.displayName,
           hashpassword: this.state.hashpassword,
           role_id: 2,
@@ -68,28 +66,12 @@ class Registbar extends React.Component {
             <input
               className="input-box-regis"
               name="email"
-              tpye="text"
+              type="text"
               placeholder="example@gmail.com"
               onChange={this.handleInput}
             />
           </div>
         </div>
-
-        <div className="row-input-box">
-          <div className="label-box mt-05">
-            <label className="text-right">UserId: </label>
-          </div>
-          <div className="input-box ">
-            <input
-              className="input-box-regis"
-              name="userId"
-              tpye="text"
-              placeholder="e3134s"
-              onChange={this.handleInput}
-            />
-          </div>
-        </div>
-
         <div className="row-input-box">
           <div className="label-box mt-05">
             <label className="text-right">Username: </label>
@@ -98,7 +80,7 @@ class Registbar extends React.Component {
             <input
               className="input-box-regis"
               name="username"
-              tpye="text"
+              type="text"
               placeholder="username"
               onChange={this.handleInput}
             />
@@ -113,7 +95,7 @@ class Registbar extends React.Component {
             <input
               className="input-box-regis"
               name="displayName"
-              tpye="text"
+              type="text"
               placeholder="NightKuzan Caster"
               onChange={this.handleInput}
             />
@@ -128,7 +110,7 @@ class Registbar extends React.Component {
             <input
               className="input-box-regis"
               name="hashpassword"
-              tpye="text"
+              type="password"
               placeholder="123456789AB!"
               onChange={this.handleInput}
             />
@@ -143,7 +125,7 @@ class Registbar extends React.Component {
             <input
               className="input-box-regis"
               name=" role_id"
-              tpye="text"
+              type="text"
               placeholder="Teacher, Student"
               onChange={this.handleInput}
             />

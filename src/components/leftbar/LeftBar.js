@@ -20,11 +20,12 @@ class LeftBar extends React.Component {
     };
     // this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.setUserData = this.setUserData.bind(this);
   }
 
-  setUserData(userData) {
+  setUserData(Data) {
     this.setState({
-      userData: userData,
+      userData: Data.data,
     });
   }
   handleClick() {
@@ -36,11 +37,15 @@ class LeftBar extends React.Component {
     this.forceUpdate();
   }
   componentDidUpdate() {
-    if (this.state.userData != null) {
-        axios.get("http://ec2-13-229-129-189.ap-southeast-1.compute.amazonaws.com/" + this.state.userData.user_id)
+    
+    if (this.state.userData != null && this.state.userData.status === 200) {
+        axios.get("http://ec2-13-229-129-189.ap-southeast-1.compute.amazonaws.com/getUserActivity/" + this.state.userData.userdata.user_id)
         .then((res) => {
           if (res.status === 200) {
             this.props.activities(res);
+          }
+          else if (res.status === 400) {
+            this.props.activities([])
           }
         })
   }
@@ -54,7 +59,7 @@ class LeftBar extends React.Component {
         <div>
           <ShowDate />
 
-          <ShowLogin setUserData={this.setUserData} />
+          <ShowLogin setUserData={this.setUserData} setPage={this.setPage}/>
 
           <div className="mt-1 text-center text-box">
             You are not member yet?{" "}
@@ -76,7 +81,7 @@ class LeftBar extends React.Component {
         </div>
       );
     } else if (this.state.currentPage === "User") {
-      return <ShowUser />;
+      return <ShowUser userData = {this.state.userData.userdata}/>;
     }
     return <div>Something went wrongs</div>;
   }

@@ -25,18 +25,24 @@ class FormLogin extends React.Component {
     axios
       .post(
         "http://ec2-13-229-129-189.ap-southeast-1.compute.amazonaws.com/login", {
-        email: this.state.email,
-        hashPassword: this.state.password
-      }
+            email: this.state.email,
+            hashpassword: this.state.password
+        }
       )
       .then((res) => {
-        this.props.setUserdata(res);
-        alert(res.data.message ?? res.data.error);
+        this.props.setUserData(res);
+        this.setState({userdata: res})
+        res.status === 200 ? alert("Login success"): alert(res.data.message ?? res.data.error);
       })
       .catch((err) => {
         alert(err.message);
       });
   };
+  componentDidUpdate() {
+      if (this.state.userdata.status === 200) {
+        this.props.setPage("User")
+      }
+  }
   render() {
     return (
       <div className="text-center login-box">
