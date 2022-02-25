@@ -21,24 +21,28 @@ class RightBar extends React.Component {
   changeData(e) {
     this.setState({ display: e})
   }
+  changeToadd = () => {
+    this.setState({currentPage: "addactivity"})
+  }
   render() {
     switch (this.state.currentPage) {
       case "activity":
         return (
           <div>
             <ShowActivities activity={this.props.activity} currentDate={this.props.currentDate} changePage={this.changePage} changeData={this.changeData}/>
+            <button onClick={this.changeToadd}> Add Activity </button>
           </div>
         );
       case "addactivity":
         return (
         <div>
-          <AddActiviy/>
+          <AddActiviy changePage={this.changePage}/>
         </div>
         )
       case "viewactivity":
         return (
           <div>
-            <Viewactivity dataDisplay= {this.state.display}/>
+            <Viewactivity dataDisplay= {this.state.display} changePage={this.changePage}/>
           </div>
         )
     }
