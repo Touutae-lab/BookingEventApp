@@ -38,14 +38,14 @@ class AddActiviy extends React.Component {
           if (res.data.message.insert_status === true) {
             this.setState({ activities_id: res.data.message.activity_id });
             console.log(this.state.activities_id);
-            console.log(this.props.token);
+            console.log(this.props.tokens);
           }
           axios
             .post(
               "http://ec2-13-229-129-189.ap-southeast-1.compute.amazonaws.com/addUserInActivity",
               {
                 activity_id: this.state.activities_id,
-                group_user: [{ user_id: this.props.token }],
+                group_user: [{ user_id: this.props.tokens }],
               }
             )
             .then((res) => {

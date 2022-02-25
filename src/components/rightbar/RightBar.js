@@ -36,7 +36,7 @@ class RightBar extends React.Component {
       case "addactivity":
         return (
         <div>
-          <AddActiviy changePage={this.changePage}/>
+          <AddActiviy changePage={this.changePage} tokens={this.props.tokens}/>
         </div>
         )
       case "viewactivity":
