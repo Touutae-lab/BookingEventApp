@@ -76,7 +76,6 @@ label {
 .rightbar-box {
   width: 20vw;
   display: flex;
-  justify-content: center;
   background-color: #20232a;
   position: relative;
 }

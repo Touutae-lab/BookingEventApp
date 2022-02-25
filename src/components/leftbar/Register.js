@@ -58,7 +58,7 @@ class Registbar extends React.Component {
         <h3 className="mb-1 mt-1 header-color">Registeration</h3>
 
         <div className="row-input-box">
-          <div className="label-box mt-05">
+          <div className="label-box">
             <label className="text-right">Email: </label>
           </div>
           <div className="input-box ">

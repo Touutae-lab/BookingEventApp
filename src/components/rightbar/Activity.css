@@ -8,11 +8,6 @@
   padding: 0.5rem;
 }
 
-.activity-box {
-  width: 100%;
-  position: absolute;
-}
-
 .bg-todayActivity {
   padding: 10px 0px;
   background-color: #98c379;
@@ -27,10 +22,6 @@
   font-size: 18px;
   color: #abb2bf;
   margin-bottom: 10px;
-}
-
-.input-box-size {
-  width: 30%;
 }
 
 .your-ac-box {
