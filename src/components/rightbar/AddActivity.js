@@ -1,60 +1,63 @@
 import "./AddActivity.css";
 import React from "react";
 import axios from "axios";
-class AddActiviy extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-  changeHandler = (e) => {
-    const name = e.target.name;
-    const value = e.target.value;
-
-    this.setState({
-      [name]: value,
-    });
-  };
-  handdleBack = () => {
-    this.props.changePage("activity");
-  };
-  addActivity = (e) => {
-    e.preventDefault();
-    axios
-      .post(
-        "http://ec2-13-229-129-189.ap-southeast-1.compute.amazonaws.com/insertActivity",
-        {
-          activity_name: this.state.title,
-          description: this.state.description,
-          start_datetime: this.state.start,
-          end_datetime: this.state.end,
-          location: this.state.location,
-          organizer: this.props.token,
+class  AddActiviy extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+          activities_id: ""
         }
-      )
-      .then((res) => {
-        if (res.data.status === "200") {
-          console.log(res);
-          this.setState({ activity_Id: res.message.activities_id });
-          axios
-            .post(
-              "http://ec2-13-229-129-189.ap-southeast-1.compute.amazonaws.com/addUserInActivity",
-              {
-                activity_id: this.state.activityId,
-                group_user: [{ user_id: this.props.token }],
-              }
-            )
-            .then((res) => {
-              if (res.status === "200") {
-                this.setState({ activities_id: res.message.activities_id });
-              } else alert(res.data.message);
-            })
-            .catch((err) => alert(err.message));
-        } else alert(res.data.message);
-      })
-      .catch((err) => alert(err.message));
-  };
-
-  render() {
+    }
+    changeHandler = (e) => {
+        const name = e.target.name;
+        const value = e.target.value;
+    
+        this.setState({
+          [name]: value,
+        });
+      };
+      handdleBack = () => {
+        this.props.changePage("activity")
+      }
+    addActivity = (e) => {
+        e.preventDefault();
+        axios
+          .post(
+            "http://ec2-13-229-129-189.ap-southeast-1.compute.amazonaws.com/insertActivity",
+            {
+              activity_name: this.state.title,
+              description: this.state.description,
+              start_datetime: this.state.start,
+              end_datetime: this.state.end,
+              location: this.state.location,
+              organizer: this.props.token,
+            }
+          )
+          .then((res) => {
+            if (res.data.status === 200) {
+                if (res.data.message.insert_status === true) {
+                  this.setState({activity_id: res.data.message.activity_id});
+                }
+                axios
+                .post(
+                  "http://ec2-13-229-129-189.ap-southeast-1.compute.amazonaws.com/addUserInActivity",
+                  {
+                    activity_id: this.state.activityId,
+                    group_user: [{ user_id: this.props.token }],
+                  }
+                )
+                .then((res) => {
+                  if (res.status === "200") {
+                      this.setState({activities_id: res.data.message.activities_id})
+                  } else alert(res.data.message);
+                })
+                .catch((err) => alert(err.message));
+            } else alert(res.data.message);
+          })
+          .catch((err) => alert(err.message));
+      };
+    
+    render() {
     return (
       <div>
         <div className="RightBar center mt-3 bg activity-box bg-activity">

@@ -23,7 +23,6 @@ class ShowActivities extends React.Component {
       <div className="showactivities-container">
         <div>
           {this.props.activity.map((data) => {
-            console.log(data);
             let correcter = this.checkCurrent(data);
             if (correcter) {
               return <MiniActivities activity={correcter} changeData={this.props.changeData} changePage={this.props.changePage}/>;

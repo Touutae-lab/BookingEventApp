@@ -46,7 +46,6 @@ class App extends React.Component {
     var currentDate = startDate;
     var data = [];
     while (currentDate <= endDate) {
-      console.log(currentDate);
       if (data.includes(this.convertdate(currentDate))) {
       } else {
         data.push(this.convertdate(currentDate));
