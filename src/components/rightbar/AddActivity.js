@@ -15,6 +15,9 @@ class  AddActiviy extends React.Component {
           [name]: value,
         });
       };
+      handdleBack = () => {
+        this.props.changePage("activity")
+      }
     addActivity = (e) => {
         e.preventDefault();
         axios
@@ -140,9 +143,7 @@ class  AddActiviy extends React.Component {
 
           <div className="text-center mt-05 mb-05">
             <button
-              onClick={() => {
-                this.setPage("allActivity");
-              }}
+              onClick={this.handdleBack}
             >
               Back
             </button>

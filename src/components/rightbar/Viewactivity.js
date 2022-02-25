@@ -7,6 +7,9 @@ class Viewactivity extends React.Component {
     super(props);
     this.state = {};
   }
+  changePage = () => {
+    this.props.changePage("activity");
+  };
   componentDidMount() {
     this.setState({
       activity_name: this.props.dataDisplay.activity_name,
@@ -77,12 +80,7 @@ class Viewactivity extends React.Component {
         </div>
 
         <div className="text-center mb-05">
-          <button
-            className="mr-05"
-            onClick={() => {
-              this.setPage("allActivity");
-            }}
-          >
+          <button className="mr-05" onClick={this.changePage}>
             Back
           </button>
           <button
