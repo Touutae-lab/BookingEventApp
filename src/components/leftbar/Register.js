@@ -40,8 +40,7 @@ class Registbar extends React.Component {
       )
       .then((res) => {
         console.log(res.data);
-        if (res.data.message == "create user unsuccessfully") {
-          alert("register successfully");
+        if (res.status == 200) {
           this.props.setPage("Login");
         } else {
           alert(res.data.message);

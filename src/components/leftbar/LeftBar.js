@@ -29,6 +29,7 @@ class LeftBar extends React.Component {
     });
     this.props.tokens(this.state.userData.userdata.user_id);
   }
+
   handleClick() {
     this.setState({ currentPage: "Register" });
   }
