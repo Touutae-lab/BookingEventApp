@@ -1,20 +1,16 @@
-import "./RightBar.css"
+import "./RightBar.css";
 import React from "react";
 
-import Activity from "./Activity";
-import Team from "./Team";
+import ShowActivities from "./ShowActivities";
+import AddActiviy from "./AddActivity";
+import Viewactivity from "./Viewactivity";
 
 class RightBar extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       currentPage: "activity",
-    }
-    //this.props.currentDate; // day
-    //this.props.activities; // activities
-  }
-  dayMapping() {
-    
+    };
   }
 
   render() {
@@ -22,17 +18,18 @@ class RightBar extends React.Component {
       case "activity":
         return (
           <div>
-            <Activity />
+            <ShowActivities activity={this.props.activity} currentDate={this.props.currentDate}/>
           </div>
-        )
-      case "team":
-        return (
+        );
+      case "addactivity":
+        <div>
+          <AddActiviy/>
+        </div>
+      case "viewactivity":
           <div>
-            <Team />
+            <Viewactivity/>
           </div>
-        )
     }
-
   }
 }
 

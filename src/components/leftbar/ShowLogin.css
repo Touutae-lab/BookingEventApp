@@ -11,6 +11,7 @@
   float: right;
   text-align: right;
   color: #e0e5ef;
+  margin-top: 5%;
 }
 
 .label-box {
@@ -20,4 +21,5 @@
 .row-input-box {
   display: flex;
   justify-content: center;
+  margin: 20px 0px;
 }

@@ -25,16 +25,17 @@ class FormLogin extends React.Component {
     e.preventDefault();
     axios
       .post(
-        "http://ec2-13-229-129-189.ap-southeast-1.compute.amazonaws.com/login", {
-        email: this.state.email,
-        hashpassword: this.state.password
-      }
+        "http://ec2-13-229-129-189.ap-southeast-1.compute.amazonaws.com/login",
+        {
+          email: this.state.email,
+          hashpassword: this.state.password,
+        }
       )
       .then((res) => {
         this.props.setUserData(res);
-        this.setState({ userdata: res })
+        this.setState({ userdata: res });
         if (res.status === 200) {
-          console.log("Login success")
+          console.log("Login success");
         } else {
           alert(res.data.message ?? res.data.error);
         }
@@ -45,28 +46,37 @@ class FormLogin extends React.Component {
   };
 
   logout = () => {
-    this.props.setPage("Login")
+    this.props.setPage("Login");
     this.props.setUserData("");
-    this.setState({ userdata: "", });
-  }
-
+    this.setState({ userdata: "" });
+  };
 
   componentDidUpdate() {
     if (this.state.userdata.status === 200) {
-      this.props.setPage("User")
+      this.props.setPage("User");
     }
   }
 
   render() {
     switch (this.props.getPage()) {
       case "User":
-        return (<div className="text-center mt-2"><button onClick={() => { this.logout() }}>Logout</button></div>)
+        return (
+          <div className="text-center mt-2">
+            <button
+              onClick={() => {
+                this.logout();
+              }}
+            >
+              Logout
+            </button>
+          </div>
+        );
       case "Login":
         return (
           <div className="text-center login-box">
             <form onSubmit={this.handleSubmit}>
               <div className="row-input-box">
-                <div className="label-box mt-05">
+                <div className="label-box">
                   <label className="text-right">Email: </label>
                 </div>
                 <div className="input-box ">
@@ -80,13 +90,13 @@ class FormLogin extends React.Component {
               </div>
 
               <div className="row-input-box">
-                <div className="label-box mt-05">
+                <div className="label-box">
                   <label className="text-right">Password: </label>
                 </div>
                 <div className="input-box ">
                   <input
                     type="password"
-                    placeholder="12345678"
+                    placeholder="123456"
                     name="password"
                     onChange={this.changeHandler}
                   />
