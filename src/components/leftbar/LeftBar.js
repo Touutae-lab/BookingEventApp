@@ -43,8 +43,6 @@ class LeftBar extends React.Component {
     return this.state.currentPage;
   };
 
-
-
   render() {
     if (this.state.currentPage === "Login") {
       return (
