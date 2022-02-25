@@ -53,6 +53,7 @@ class AddActiviy extends React.Component {
                 this.setState({
                   activities_id: res.data.message.activities_id,
                 });
+                this.handdleBack();
               } else alert(res.data.message);
             })
             .catch((err) => alert(err.message));
