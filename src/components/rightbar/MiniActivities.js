@@ -7,15 +7,19 @@ class MiniActivities extends React.Component {
   }
   componentDidUpdate() {}
 
+  handleClick = () => {
+    this.props.changePage("viewactivity")
+    this.props.changeData(this.props.activity)
+    console.log("data")
+  }
+
   render() {
     return (
       <div>
-        <button className="miniActivities">
-          {this.props.activity.activity_name + " : "}
+        <button className="miniActivities" onClick={this.handleClick} type="submit" >
+          {this.props.activity.activity_name + " "}
 
-          {new Date(this.props.activity.start_datetime).getHours() +
-            ":" +
-            new Date(this.props.activity.end_datetime).getMinutes()}
+          {new Date(this.props.activity.start_datetime).toLocaleTimeString()}
         </button>
       </div>
     );
