@@ -2,12 +2,24 @@ import ShowActivities from "./ShowActivities";
 import React from "react";
 
 
-class viewActivity extends React.Component {
+class Viewactivity extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
 
         }
+    }
+    componentDidMount() {
+      this.setState({
+        activity_name: this.props.dataDisplay.activity_name,
+        description: this.props.dataDisplay.description,
+        start_datetime: this.props.dataDisplay.start_datetime,
+        end_datetime: this.props.dataDisplay.end_datetime,
+        location: this.props.dataDisplay.location,
+        organizer: this.props.dataDisplay.organizer,
+        // activity_id: this.props.token,
+        
+      })
     }
 
     render () {
@@ -21,7 +33,7 @@ class viewActivity extends React.Component {
           <div className="label-box mt-05 mr-05">
             <label className="text-right">title :</label>
           </div>
-          <div className="input-box input-box-size">{this.state.title}</div>
+          <div className="input-box input-box-size">{this.state.activity_name}</div>
         </div>
 
         <div className="row-input-box field-activity">
@@ -35,14 +47,14 @@ class viewActivity extends React.Component {
           <div className="label-box mt-05 mr-05">
             <label className="text-right">start :</label>
           </div>
-          <div className="input-box input-box-size">{this.state.start}</div>
+          <div className="input-box input-box-size">{this.state.start_datetime}</div>
         </div>
 
         <div className="row-input-box field-activity">
           <div className="label-box mt-05 mr-05">
             <label className="text-right">end :</label>
           </div>
-          <div className="input-box input-box-size">{this.state.end}</div>
+          <div className="input-box input-box-size">{this.state.end_datetime}</div>
         </div>
 
         <div className="row-input-box field-activity">
@@ -90,4 +102,4 @@ class viewActivity extends React.Component {
     );
     }
 }
-export default viewActivity;
+export default Viewactivity;

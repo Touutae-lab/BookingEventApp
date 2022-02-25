@@ -1,6 +1,7 @@
 import "./ShowActivities.css";
 import React from "react";
 import MiniActivities from "./MiniActivities";
+import { tileProps } from "react-calendar/dist/umd/shared/propTypes";
 class ShowActivities extends React.Component {
   constructor(props) {
     super(props);
@@ -16,6 +17,7 @@ class ShowActivities extends React.Component {
     return false;
   }
 
+
   render() {
     return (
       <div className="showactivities-container">
@@ -24,7 +26,7 @@ class ShowActivities extends React.Component {
             console.log(data);
             let correcter = this.checkCurrent(data);
             if (correcter) {
-              return <MiniActivities activity={correcter} />;
+              return <MiniActivities activity={correcter} changeData={this.props.changeData} changePage={this.props.changePage}/>;
             }
           })}
         </div>
